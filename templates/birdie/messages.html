@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}  
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Messages</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://templates.essaywpthemes.com/order/public/bootstrap.min.css" rel="stylesheet">
+    <link href="https://templates.essaywpthemes.com/order/public/bootstrap.min.css" rel="stylesheet">
+    <link href= "{% static 'css/main.css' %}" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://templates.essaywpthemes.com/order/public/font-awesome/css/fontawesome-all.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="https://templates.essaywpthemes.com/order/public/bootstrap/opskill-styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/jquery.min.js"></script>
+    <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/f53431686e.js"></script>
+    <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+
+    
+    <script src="https://unpkg.com/intasend-inlinejs-sdk@3.0.2/build/intasend-inline.js"></script>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'vendor/owl-carousel/owl.carousel.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/money.js' %}"></script>
+</head>
+
+
+<div class="wrbody">
+    <header class="wrheader">
+        <div class="container">
+
+
+            {% include 'birdie/partials/navbar.html' %}
+
+        </div>
+    </header>
+    <div class="container">
+        <div><br><br></div>
+
+
+        <div class="row bg-white clients">
+
+            <marquee width="100%" direction="horizontal" height="30%"></marquee>
+            
+            {% include 'birdie/partials/clientsidebar.html' %}
+
+            <div class="ops-sm-9 features">
+
+                <!--make payment modal-->
+                <div id="how-it-works" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div style="padding: 20px;">
+                                <h3 class="lead">How it <span class="text-success">Works</span></h3>
+                                <ul class="list-unstyled" style="line-height: 2">
+                                    <li><span class="fa fa-check text-success"></span> Place your order</li>
+                                    <li><span class="fa fa-check text-success"></span> Proceed to Payment</li>
+                                    <li><span class="fa fa-check text-success"></span> Assign a Writer </li>
+                                    <li><span class="fa fa-check text-success"></span> Download your paper</li>
+                                </ul>
+                                <p><a href="/order" class="btn btn-info btn-block">Order Now</a></p>
+                            </div>
+
+
+                        </div><!--modal content-->
+                    </div><!--modal dialog-->
+                </div>    <section class="orders orderview" id="">
+      <div class="container">
+        <br />
+        <h4 class="dash-title"> All Messages </h4>
+        <br>
+        <hr />
+        <div class="row search-box">
+
+          <div class="ops-sm-2">ORDER</div>
+          <div class="ops-sm-2">From</div>
+          <div class="ops-sm-1">To</div>
+          <div class="ops-sm-3">Message</div>
+          <div class="ops-sm-2">Date</div>
+          <div class="ops-sm-1">Status</div>
+
+        </div>
+        <hr />
+
+
+        <div class="row search-box">
+            {% for message in messages %}
+            <div class="ops-sm-2">{{message.order.id}}- {{message.order.title}} </div>
+            <div class="ops-sm-2">{{message.sender_type}}</a>
+            </div>
+            <div class="ops-sm-1">{{message.recipient_type}}</div>
+            <div class="ops-sm-3">{{message.body}}</div>
+
+
+            <div class="ops-sm-3">{{message.timestamp}}
+
+            </div>
+            <div class="ops-sm-1">Read</div>
+
+
+            {% endfor %}
+        
+            <div class="pagination float-right">
+            <li></li>
+            </div>
+      </div>
+
+
+      </div>
+
+
+
+
+
+      </div>
+    </section>
+
+
+
+    </body>
+
+    </html>
+
+    </div>
+
+    </div>

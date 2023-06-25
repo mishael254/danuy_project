@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Dashboard</title>
+
+  <link href="https://templates.essaywpthemes.com/order/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/jquery.min.js"></script>
+  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Custom fonts for this template -->
+  <script src="https://kit.fontawesome.com/f53431686e.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="https://templates.essaywpthemes.com/order/public/admin/freelancer.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg" id="mainNav">
+    <div class="container">
+      <div class="logo-box">
+        <a class="current" href="https://templates.essaywpthemes.com/order/adorders/dashboard" title=""><img src="/order/assets/images/logo_1.svg" class="hero-logo" alt=""></a>
+      </div>
+      <form action="https://templates.essaywpthemes.com/order/adorders/getid" method="post" class="row">
+        <input name="searchid" class="col-sm-9 form-control header-box border-default" placeholder="Search order by ID" type="text">
+        <button type="submit" class="btn-search"> <i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link rounded js-scroll-trigger" href="https://templates.essaywpthemes.com/order/order/adconfigs"><img src="/order/assets/images/settings.svg"> Settings</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="/order/assets/images/messages.svg"><span class="header-badge blue">1</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="/order/assets/images/alerts.svg"><span class="header-badge green">16 </span>
+            </a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link rounded js-scroll-trigger" href="https://templates.essaywpthemes.com/order/admin/logout"><img src="/order/assets/images/logout.svg" class="logout"><strong> Logout</strong></a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link rounded js-scroll-trigger" href="https://templates.essaywpthemes.com/order/admin/profile"><img src="/order/assets/images/6.jpg" class="avatar"> Admin </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>    <!-- Portfolio Grid Section -->
+    <section class="" id="portfolio">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-sm-2 sidebar-background">
+            <div class="admin-menu-links">
+
+              <p class="side-order-btn"><a class="text-white" href="https://templates.essaywpthemes.com/order/adorders/add"> New Order</a></p>
+
+
+              <p><a href="https://templates.essaywpthemes.com/order/adorders/dashboard"><img src="/order/assets/images/home.svg"> Dashboard</a></p>
+
+              <p><a href="https://templates.essaywpthemes.com/order/adorders/bidding"><img src="/order/assets/images/orders.svg"> Orders (16) </a></p>
+
+              <p><a href="https://templates.essaywpthemes.com/order/adorders/bids"><img src="/order/assets/images/bid.svg"> Bids (1) </a></p>
+              <p><a href="https://templates.essaywpthemes.com/order/adorders/users"><img src="/order/assets/images/users.svg"> Users (17)</a></p>
+
+              <p><a href="https://templates.essaywpthemes.com/order/adsms/communicate"><img src="/order/assets/images/messages.svg"> Messages (1)</a></p>
+
+
+              <p><a href="https://templates.essaywpthemes.com/order/adpay/winvoices"><img src="/order/assets/images/pay.svg"> Writer Pay</a></p>
+
+              <p><a href="https://templates.essaywpthemes.com/order/adorders/alerts"><img src="/order/assets/images/alerts.svg"> Alerts (0)</a></p>
+
+
+              <p><a href="https://templates.essaywpthemes.com/order/adconfigs/allpayments"><img src="/order/assets/images/payments.svg"> Payments (0)</a></p>
+
+
+
+
+
+              <p><a href="https://templates.essaywpthemes.com/order/adpay"><img src="/order/assets/images/finances.svg"> Finances (0)</a></p>              <!--<p><a href="https://templates.essaywpthemes.com/order/adaffiliate/configs"><i class="fas fa-code-branch fa-1x"></i> Affiliates </a></p>-->
+
+              <p><a href="https://templates.essaywpthemes.com/order/adorders/rated"><img src="/order/assets/images/reviews.svg"> Reviews (0) </a></p>
+              <p><a href="https://templates.essaywpthemes.com/order/adwriters/news"><img src="/order/assets/images/edit.svg"> NEWS </a></p>
+              <!-- 
+              <p><a href="https://templates.essaywpthemes.com/order/adwriters/quality"><i class="fa fa-fire fa-1x"></i> Writer Quality </a></p>
+              <p><a href="https://templates.essaywpthemes.com/order/adwriters/questions"><i class="fas fa-users fa-1x"></i> Writer Tests </a></p 
+              -->
+              <p><a href="https://templates.essaywpthemes.com/order/adconfigs"><img src="/order/assets/images/settings.svg"> Settings</a></p>
+            </div>
+          </div>
+
+
+
+          <div class="col-sm-10">
+
+        <div class="row text-center service-menu-background">
+
+          <div class="col-sm-2"><a href="https://templates.essaywpthemes.com/order/adwriters/add">
+<i class="fas fa-user-plus"></i> Add writer </a>
+          </div> 
+
+          <div class="col-sm-2"><a href="https://templates.essaywpthemes.com/order/adwriters/apps">
+<i class="fa fa-fire" aria-hidden="true"></i> Applicants (<font color="#e60000">0</font>)</a>
+          </div>     
+
+          <div class="col-sm-2"><a href="https://templates.essaywpthemes.com/order/adwriters/active">
+<i class="fa fa-fire" aria-hidden="true"></i> Active (<font color="#e60000">2</font>)</a>
+          </div>        
+
+          <div class="col-sm-2"><a href="https://templates.essaywpthemes.com/order/adwriters/deactivated">
+<i class="fa fa-fire" aria-hidden="true"></i> Deactive (<font color="#e60000">0</font>)</a>
+          </div>
+
+<div class="col-sm-3">
+              <form action="https://templates.essaywpthemes.com/order/adwriters/getwriter" method="post" class="row">
+                    <input name="search"  class="col-sm-10 form-control border-default" placeholder="Search writers" type="text">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+</div>
+<div class="col-sm-1"><a class="btn btn-info" href="https://templates.essaywpthemes.com/order/adwriters/active">Clear search</a></div>
+
+        </div>
+<hr/>
+ <div class="row">
+
+    <div class="col-sm-1">ID</div>
+    <div class="col-sm-3">Email</div>
+    <div class="col-sm-1">Nick Name</div>
+    <div class="col-sm-3">Full Name</div>
+    <div class="col-sm-2">Phone</div>
+    <div class="col-sm-1">Country </div>
+    <div class="col-sm-1">Balance </div>
+</div>
+<hr />
+
+<div class="pagination float-right">
+    <li></li>
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+</section>
+
+
+
+</body>
+
+</html>

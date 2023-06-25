@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Dashboard</title>
+
+  <link href="https://templates.essaywpthemes.com/order/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/jquery.min.js"></script>
+  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Custom fonts for this template -->
+  <script src="https://kit.fontawesome.com/f53431686e.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="https://templates.essaywpthemes.com/order/public/admin/freelancer.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  {% include 'admindash/partials/adminnavbar.html' %}
+  
+  <!-- Portfolio Grid Section -->
+    <section class="" id="portfolio">
+      <div class="container">
+        <div class="row">
+
+            {% include 'admindash/partials/adminsidenavbar.html' %}
+
+
+
+          <div class="col-sm-10">
+
+            <div class="row text-center service-menu-background">
+
+                <div class="col-sm-1">
+                  <a href="{% url 'adminpending' %}" class="orders-menu">
+                    Pending <span class="header-badge grey"> {{not_paid_count}} </span>
+                  </a>
+                </div>
+                <!--
+                <div class="col-sm-1"><a href="https://templates.essaywpthemes.com/order/adorders/urgent">
+                    <i class="fa fa-fire" aria-hidden="true"></i> Urgent (<font color="#e60000">1</font>)</a>
+                </div>
+                <div class="col-sm-1"><a href="https://templates.essaywpthemes.com/order/adorders/aurgent">
+                    <i class="fa fa-fire" aria-hidden="true"></i><br /> Urgent assigned(<font color="#e60000">0</font>)</a>
+                </div>
+                <div class="col-sm-1"><a href="https://templates.essaywpthemes.com/order/adorders/bids">
+                    <i class="fa fa-fire" aria-hidden="true"></i> <br />Bids (<font color="#e60000">0</font>)</a>
+                </div>
+                -->
+            
+                <div class="col-sm-1">
+                  <a href="{% url 'adminavailable' %}" class="orders-menu">
+                    Available <span class="header-badge grey"> {{approved_orders_count}} </a>
+                        
+                </div>
+                
+                <div class="col-sm-1">
+                  <a href="{% url 'adminprogress' %}" class="orders-menu">
+                    Progress <span class="header-badge grey"> {{progress_orders_count}}  </a>
+                </div>
+                <div class="col-sm-1">
+                  <a href="{% url 'adminediting' %}" class="orders-menu">
+                    Editing <span class="header-badge grey"> {{editing_orders_count}} </a>
+                        
+                </div>
+               
+                <div class="col-sm-1">
+                  <a href="{% url 'admincompleted' %}" class="orders-menu">
+                    Completed <span class="header-badge grey">{{completed_orders_count}}     </a>
+                </div>
+                <div class="col-sm-1">
+                  <a href="{% url 'adminrevision' %}" class="orders-menu">
+                    Revision <span class="header-badge grey">{{revision_orders_count}}       </a>
+                </div>
+                <div class="col-sm-1">
+                  <a href="{% url 'admincancelled' %}" class="orders-menu">
+                    Cancelled <span class="header-badge grey"> {{cancelled_orders_count}}    </a>
+                </div>
+            
+                <div class="col-sm-1">
+                    <a href="{% url 'adminavailable' %}" class="orders-menu">
+                      Approved <span class="header-badge grey"> {{approved_orders_count}} </a>
+                          
+                  </div>
+              </div>
+
+  <!--
+  <div class="row search-box">
+    
+        <div class="col-sm-4">
+
+      <form action="https://templates.essaywpthemes.com/order/adorders/getid" method="post" class="row">
+        <input name="searchid" class="col-sm-9 form-control border-default" placeholder="Search order by ID" type="text">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+
+    </div>
+    <div class="col-sm-6">
+      <form action="https://templates.essaywpthemes.com/order/adorders/search_url_create" method="post" class="row">
+        <input name="search" class="col-sm-10 form-control border-default" placeholder="Search order by title/keyword" type="text" value="">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+    <div class="col-sm-1"><a class="btn btn-info" href="https://templates.essaywpthemes.com/order/adorders/bidding">Clear search</a></div>
+
+
+  </div>
+
+  <hr />
+   -->    <script src="https://templates.essaywpthemes.com/order/public/ckeditor/ckeditor.js"></script>
+ <link rel="stylesheet" type="text/css" href="https://templates.essaywpthemes.com/order/public/dropzone/basic.min.css">
+  <script type="text/javascript" src="https://templates.essaywpthemes.com/order/public/dropzone/jquery.js"></script>
+  <script type="text/javascript" src="https://templates.essaywpthemes.com/order/public/dropzone/dropzone.min.js"></script>
+
+<div class="row">
+<div class="col-sm-8 main-content">
+   
+
+<div class="row">
+  <div class="col-sm-9"></div>
+  <div class="col-sm-3">
+<p class="row text-center">  <a class="btn btn-info" href="{% url 'adminorderdetails' order.id %}">Back to Order </a>
+</p>
+</div>
+</div>
+
+
+
+<form role="form" action="{% url 'adminedit_order' order.id %}" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group row">
+        <label class="col-sm-2" for="exampleTextarea">Title</label>
+        <input name="title" class="border-default form-control col-sm-10" value="{{order.title}}" type="text">
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="col-sm-6">
+
+                <table class="table table-sm">
+
+        <tbody>
+            <tr>
+            <th scope="row">Academic Level</th>
+            <td>
+                
+            <select name="academic_level" class="form-control custom-select border-default" value="{{order.academic_level}}" id="exampleSelect1">
+                <option value="High School" {% if order.academic_level == 'High School' %}selected{% endif %}>High School</option>
+                <option value="freshman" {% if order.academic_level == 'freshman' %}selected{% endif %}>Freshman</option>
+                <option value="sophomore" {% if order.academic_level == 'sophomore' %}selected{% endif %}>Sophomore</option>
+                <option value="junior" {% if order.academic_level == 'junior' %}selected{% endif %}>Junior College</option>
+                <option value="senior" {% if order.academic_level == 'senior' %}selected{% endif %}>Senior College</option>
+                <option value="masters" {% if order.academic_level == 'masters' %}selected{% endif %}>Masters</option>
+                <option value="doctoral" {% if order.academic_level == 'doctoral' %}selected{% endif %}>Doctoral</option>
+            </select>
+
+
+            </td>
+            </tr>
+                <tr>
+            <th scope="row">Paper Type:</th>
+            <td>
+                
+            <select name="order_type" class="form-control custom-select border-default" value="{{order.order_type}}" id="exampleSelect1">
+                <option value="Essay" {% if order.order_type == 'Essay' %}selected{% endif %}>Essay</option>
+                <option value="Article (Any Type)" {% if order.order_type == 'Article (Any Type)' %}selected{% endif %}>Article (Any Type)</option>
+                <option value="Assignment" {% if order.order_type == 'Assignment' %}selected{% endif %}>Assignment</option>
+                <option value="Content (Any Type)" {% if order.order_type == 'Content (Any Type)' %}selected{% endif %}>Content (Any Type)</option>
+                <option value="Admission Essay" {% if order.order_type == 'Admission Essay' %}selected{% endif %}>Admission Essay</option>
+                <option value="Annotated Bibliography" {% if order.order_type == 'Annotated Bibliography' %}selected{% endif %}>Annotated Bibliography</option>
+                <option value="Argumentative Essay" {% if order.order_type == 'Argumentative Essay' %}selected{% endif %}>Argumentative Essay</option>
+                <option value="Article Review" {% if order.order_type == 'Article Review' %}selected{% endif %}>Article Review</option>
+                <option value="Book review" {% if order.order_type == 'Book review' %}selected{% endif %}>Book/Movie Review</option>
+                <option value="Business Plan" {% if order.order_type == 'Business Plan' %}selected{% endif %}>Business Plan</option>
+                <option value="Capstone Project" {% if order.order_type == 'Capstone Project' %}selected{% endif %}>Capstone Project</option>
+                <option value="Case study" {% if order.order_type == 'Case study' %}selected{% endif %}>Case Study</option>
+                <option value="Coursework" {% if order.order_type == 'Coursework' %}selected{% endif %}>Coursework</option>
+                <option value="Creative Writing" {% if order.order_type == 'Creative Writing' %}selected{% endif %}>Creative Writing</option>
+                <option value="Critical Thinking" {% if order.order_type == 'Critical Thinking' %}selected{% endif %}>Critical Thinking</option>
+                <option value="Dissertation" {% if order.order_type == 'Dissertation' %}selected{% endif %}>Dissertation</option>
+                <option value="Dissertation chapter" {% if order.order_type == 'Dissertation chapter' %}selected{% endif %}>Dissertation chapter</option>
+                <option value="Lab report" {% if order.order_type == 'Lab report' %}selected{% endif %}>Lab Report</option>
+                <option value="Math Problem" {% if order.order_type == 'Math Problem' %}selected{% endif %}>Math Problem</option>
+                <option value="Research Paper" {% if order.order_type == 'Research Paper' %}selected{% endif %}>Research Paper</option>
+                <option value="Research Proposal" {% if order.order_type == 'Research Proposal' %}selected{% endif %}>Research Proposal</option>
+                <option value="Research summary" {% if order.order_type == 'Research summary' %}selected{% endif %}>Research Summary</option>
+                <option value="Scholarship Essay" {% if order.order_type == 'Scholarship Essay' %}selected{% endif %}>Scholarship Essay</option>
+                <option value="Assignment" {% if order.order_type == 'Assignment' %}selected{% endif %}>Assignment</option>
+                <option value="Statistic Project" {% if order.order_type == 'Statistic Project' %}selected{% endif %}>Statistic Project</option>
+                <option value="Term Paper" {% if order.order_type == 'Term Paper' %}selected{% endif %}>Term Paper</option>
+                <option value="Thesis" {% if order.order_type == 'Thesis' %}selected{% endif %}>Thesis
+                <option value="Report" {% if order.order_type == 'Report' %}selected{% endif %}>Report </option>
+                <option value="Power Point presentation" {% if order.order_type == 'Power Point presentation' %}selected{% endif %}>Power Point presentation</option>
+                <option value="Discussion board post" {% if order.order_type == 'Discussion board post' %}selected{% endif %}>Discussion board post</option>
+                <option value="Outline" {% if order.order_type == 'Outline' %}selected{% endif %}>Outline</option>
+                
+            </select>
+
+
+            </td>
+            </tr>
+            
+            
+            
+                <tr>
+            <th scope="row">Subject:</th>
+            <td> 
+                
+            <select name="subject_area" class="form-control custom-select border-default" id="exampleSelect1">
+
+                <option value="Accounting" {% if order.subject_area == 'Accounting' %}selected{% endif %}>Accounting</option>
+                <option value="Economics" {% if order.subject_area == 'Economics' %}selected{% endif %}>Economics</option>
+                <option value="Finance" {% if order.subject_area == 'Finance' %}selected{% endif %}>Finance</option>
+                <option value="Business" {% if order.subject_area == 'Business' %}selected{% endif %}>Business</option>
+                <option value="Investment" {% if order.subject_area == 'Investment' %}selected{% endif %}>Investment</option>
+                <option value="Taxation" {% if order.subject_area == 'Taxation' %}selected{% endif %}>Taxation/option>
+                <option value="Management" {% if order.subject_area == 'Management' %}selected{% endif %}>Management</option>
+                <option value="Calculations" {% if order.subject_area == 'Calculations' %}selected{% endif %}>Calculations</option>
+                
+                
+            </select>
+
+            </td>
+            </tr>
+            <tr>
+                <th scope="row">Pages</th>
+                <td><input value="{{order.pages}}" name="pages" class="form-control"  type="text"></td>
+            </tr>
+             <tr>
+                <th scope="row">Sources</th>
+                <td><input value=" {{order.sources}}" name="sources" class="form-control"  type="text"></td>
+            </tr>       
+             <tr>
+                <th scope="row">Spacing</th>
+                <td><input value=" {{order.spacing}}" name="spacing" class="form-control"  type="text"></td>
+            </tr>   
+            
+            <tr>
+                <th scope="row">Language</th>
+                <td><input value="{{order.language}}" name="language" class="form-control"  type="text"></td>
+            </tr>   
+            
+            <tr>
+            <th scope="row">Citation</th>
+            <td>
+            <select name="style" class="form-control border-default custom-select" id="exampleSelect1">
+                
+                <option value="APA" {% if order.style == 'APA' %}selected{% endif %}>APA</option>
+                <option value="OTHER" {% if order.style == 'OTHER' %}selected{% endif %}>OTHER </option>
+                <option value="MLA" {% if order.style == 'MLA' %}selected{% endif %}>MLA</option>
+                <option value="HARVARD" {% if order.style == 'HAVARD' %}selected{% endif %}>HAVARD</option>
+                <option value="CHICAGO" {% if order.style == 'CHICAGO' %}selected{% endif %}>CHICAGO</option>
+                <option value="TURABIAN" {% if order.style == 'TURABIAN' %}selected{% endif %}>TURABIAN</option>
+                <option value="OSCOLA" {% if order.style == 'OSCOLA' %}selected{% endif %}>OSCOLA</option>
+                
+            </select>
+
+            </td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="col-sm-6">
+
+
+                    <table class="table table-sm">
+        <tbody>
+            <tr>
+            <th scope="row">Quality</th>
+            <td>
+                
+            <select name="writer_level" class="form-control border-default custom-select" id="exampleSelect1">
+
+                <option value="standard" {% if order.writer_level == 'standard' %}selected{% endif %}>standard</option>
+                <option value="premium" {% if order.writer_level == 'premium' %}selected{% endif %}>premium </option>
+                <option value="platinum" {% if order.writer_level == 'platinum' %}selected{% endif %}>platinum</option>
+            
+                
+            </select>
+
+            </td>
+            </tr>    
+
+        </tbody>
+        </table>
+
+        </div>
+
+    </div>
+
+   
+
+    <div class="form-group">
+    <label for="exampleTextarea">Paper Instructions</label>
+    <textarea class="form-control border-default" name="description" id="editor"  rows="3">{{order.description}}</textarea>
+    </div>
+
+
+ <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+
+
+
+    <div class="form-group">
+<button class="btn-outline btn-xl js-scroll-trigger">Submit Changes</button>
+  </div>
+<hr/>
+
+</form>
+
+</div>
+<div class="col-sm-4">
+  <div class="orderformback ">
+
+    <!-- Button trigger modal -->
+          <p> If you delete this order, the details will be unrecoverable </p>
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+  Delete Order
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure to delete ORDER:70142</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <p> If you delete this order, the details will be unrecoverable </p>
+      </div>
+      <div class="modal-footer">
+        <form action="{% url 'admindelete_order' order.id %}" method="post">
+            {% csrf_token %}
+      <div class="form-group">
+<button class="btn btn-danger">Sure, Delete Order</button>
+  </div>
+
+</form>
+
+<hr/>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+        </div>
+
+
+      </div>
+    </section>
+
+
+
+  </body>
+
+</html>
+

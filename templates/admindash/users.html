@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Dashboard</title>
+
+  <link href="https://templates.essaywpthemes.com/order/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/jquery.min.js"></script>
+  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Custom fonts for this template -->
+  <script src="https://kit.fontawesome.com/f53431686e.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="https://templates.essaywpthemes.com/order/public/admin/freelancer.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+   {% include 'admindash/partials/adminnavbar.html' %}   
+   
+   
+   <!-- Portfolio Grid Section -->
+    <section class="" id="portfolio">
+      <div class="container">
+        <div class="row">
+
+           {% include 'admindash/partials/adminsidenavbar.html' %}
+
+
+
+          <div class="col-sm-10 dash-home">
+
+  <script src="https://templates.essaywpthemes.com/order/public/assets/js/Chart.min.js"></script>
+  <script src="https://templates.essaywpthemes.com/order/public/assets/js/utils.js"></script>
+
+  <div class="dashboard-counts no-padding-bottom">
+    <h4 class="dash-title"> Users' Dashboard </h4>
+    <div class="row">
+      <!-- Item -->
+      <div class="col-xl-3 col-sm-6 panels">
+        <div class="item text-center panel-box">
+          <div class="title">
+            <a href="{% url 'adminclients' %}">
+              <div class="panel-count">
+                {{clients_count}}   </div>
+              <span> Clients</span>
+            </a>
+          </div>
+          <div class="panel-icons blue">
+            <a class="current" href="#" title=""><img src="https://templates.essaywpthemes.com/order/assets/images/clients.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <!-- Item -->
+      <div class="col-xl-3 col-sm-6 panels">
+        <div class="item text-center panel-box">
+          <div class="title">
+            <a href="{% url 'adminactivewriters' %}">
+              <div class="panel-count">
+                {{writers_count}}           </div>
+              <span> Active Writers</span>
+            </a>
+          </div>
+          <div class="panel-icons yellow">
+            <a class="current" href="#" title=""><img src="https://templates.essaywpthemes.com/order/assets/images/writers.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <!-- Item -->
+      <div class="col-xl-3 col-sm-6 panels">
+        <div class="item text-center panel-box">
+          <div class="title">
+            <a href="{% url 'admineditors' %}">
+              <div class="panel-count">
+               {{editors_count}}       </div>
+              <span> Editors</span>
+            </a>
+          </div>
+          <div class="panel-icons pink">
+            <a class="current" href="#" title=""><img src="https://templates.essaywpthemes.com/order/assets/images/editors.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <!-- Item -->
+      <div class="col-xl-3 col-sm-6 panels">
+        <div class="item text-center panel-box">
+          <div class="title">
+            <a href="{% url 'adminapplicants' %}">
+              <div class="panel-count">
+                {{applicants_count}}         </div>
+              <span> Writer Applications</span>
+            </a>
+          </div>
+          <div class="panel-icons green">
+            <a class="current" href="#" title=""><img src="https://templates.essaywpthemes.com/order/assets/images/apps.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <hr />
+
+
+
+
+
+    <br />
+    <div class="row bg-white has-shadow history-box">
+      <div class="col-xl-12">
+
+
+        <div class="container">
+          <div class="row my-3">
+            <div class="col">
+              <h4 class="dash-title">Client Registration Trend (monthly)</h4>
+            </div>
+          </div>
+          <div class="row my-2">
+            <div class="col-md-12 py-1">
+              <div class="card">
+                <div class="card-body">
+                  <canvas id="chLine"></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <script>
+          /* chart.js chart examples */
+
+          // chart colors
+          var colors = ['#007bff', '#28a745', '#333333', '#c3e6cb', '#dc3545', '#6c757d'];
+
+          /* large line chart */
+          var chLine = document.getElementById("chLine");
+          var chartData = {
+            labels: ["04","05","06","07","08","09","10","11","12","01","02","03","04",],
+            datasets: [{
+                data: ["0","0","0","0","0","0","0","0","0","0","02","013","0",],
+                backgroundColor: 'transparent',
+                borderColor: colors[0],
+                label: 'This year',
+                borderWidth: 4,
+                pointBackgroundColor: colors[0]
+              },
+
+              {
+                data: ["0","0","0","0","0","0","0","0","0","0","0","0","0",],
+                backgroundColor: 'transparent',
+                borderColor: colors[1],
+                label: 'last year',
+                borderWidth: 4,
+                pointBackgroundColor: colors[0]
+              }
+              //   {
+              //     data: [639, 465, 493, 478, 589, 632, 674],
+              //     backgroundColor: colors[3],
+              //     borderColor: colors[1],
+              //     borderWidth: 4,
+              //     pointBackgroundColor: colors[1]
+              //   }
+            ]
+          };
+          if (chLine) {
+            new Chart(chLine, {
+              type: 'line',
+              data: chartData,
+              options: {
+                scales: {
+                  xAxes: [{
+                    ticks: {
+                      beginAtZero: false
+                    }
+                  }]
+                },
+                legend: {
+                  display: false
+                },
+                responsive: true
+              }
+            });
+          }
+        </script>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+    <br />
+
+  </div>
+
+</div>

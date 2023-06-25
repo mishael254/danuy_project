@@ -1,0 +1,221 @@
+{% extends 'birdie/base.html' %}
+{% load static %} 
+{% block title %} | Order Now {% endblock %}
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Blog Details Section ======= -->
+    <section id="order-form" class="order-form">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8">
+            <div class="order-container">
+              <header>
+
+                <div class="cart-price" style="font-size: 24px; font-weight:600; color:#1ab92a;">
+                  Order Details 
+                  </div>
+              </header>
+      
+              <form action="" method="post">
+                {% csrf_token %}
+                  <div class="form first">
+                      <div class="details personal">
+                          <!--<span class="title">Order Details</span>-->
+      
+                          <div class="fields">
+                              <div class="input-field">
+                                  <label>TYPE OF DOCUMENT</label>
+                                  <select name="order_type" required>
+                                      <option disabled selected>Essay (any type)</option>
+                                      <option>Essay</option>
+                                      <option>Coursework</option>
+                                      <option>Research Paper</option>
+                                      <option>Term Paper</option>
+                                      <option>Case study</option>
+                                      <option>Capstone Project</option>
+                                      <option>Assignment</option>
+                                      <option>Book report</option>
+                                      <option>Report</option>
+                                      <option>Outline</option>
+                                      <option>Book review</option>
+                                      <option>Summary</option>
+                                      <option>Power Point presentation</option>
+                                      <option>Research summary</option>
+                                      <option>Discussion board post</option>
+                                      <option>Lab report</option>
+                                      
+                                  </select>
+                              </div>
+      
+                              <div class="input-field">
+                                  <label>SUBJECT AREA</label>
+                                  <select name="subject_area" required>
+                                      <option disabled selected>Subject Area</option>
+                                      <option>Accounting</option>
+                                      <option>Economics</option>
+                                      <option>Finance</option>
+                                      <option>Business</option>
+                                      <option>Investment</option>
+                                      <option>Taxation</option>
+                                      <option>Management</option>
+                                      <option>Calculations</option>
+                                  </select>
+                              </div>
+      
+                              <div class="input-field">
+                                  <label>ACADEMIC LEVEL</label>
+                                  <select name="academic_level" onclick="calculatePrice()" id="service" required>
+                                      <option disabled selected>Select Academic Level</option>
+                                      <option value="High School">High School</option>
+                                      <option value="freshman">Freshman (College 1st year)</option>
+                                      <option value="sophomore">Sophomore (College 2nd year)</option>
+                                      <option value="junior">Junior (College 3rd year)</option>
+                                      <option value="senior">Senior (College 4th year)</option>
+                                      <option value="masters">Master's</option>
+                                      <option value="doctoral">Doctoral</option>
+                                  </select>
+                              </div>
+      
+                                                      
+                          </div>
+                          <div class="fields">
+                            <div class="input-field">
+                              <label>LANGUAGE</label>
+                              <select name="language" required>
+                                  <option disabled selected>Language</option>
+                                  <option>English US</option>
+                                  <option>English UK</option>
+                              </select>
+                          </div>
+  
+                          
+  
+                      
+                              <div class="input-field pages">
+                                  <label>Number of Pages (1 page = 275 Words)</label>
+                                  <input name="pages" onclick="calculatePrice()" type="number" id="pages" value="1" min="1" placeholder="pages" required>
+                              </div>
+                              <div class="input-field">
+                                  <label>PAGE SPACING</label>
+                                  <select name="spacing" required>
+                                      <option disabled selected>Page Spacing</option>
+                                      <option>Double Spaced</option>
+                                      <option>Single Spaced</option>
+                                  </select>
+                              </div>
+            
+                              <div class="input-field">
+                                  <label>SOURCES</label>
+                                  <input name="sources" type="number" min="0" placeholder="Number of Sources" required>
+                              </div>
+      
+                              <div class="input-field">
+                                  <label>PAPER FORMAT/STYLE</label>
+                                  <select name="style" required>
+                                      <option disabled selected>Paper Format/Style</option>
+                                      <option>APA</option>
+                                      <option>MLA</option>
+                                      <option>CHICAGO</option>
+                                      <option>HARVARD</option>
+                                      <option>OSCOLA</option>
+                                      <option>TURABIAN</option>
+                                      <option>OTHER</option>
+                                  </select>
+                              </div>
+      
+                              
+                              <div class="input-field">
+                                <label>CHOOSE WRITER LEVEL</label>
+                                <select name="writer_level" onclick="calculatePrice()" id="level" required>
+                                  <option disabled selected>Choose Writer Level</option>
+                                  <option value="standard">Standard (Standard Price Writers)</option>
+                                  <option value="premium">Premium (Proficient in the requested Field of study.)</option>
+                                  <option value="platinum">Platinum (English as native language (US, UK, CAD &  AU writers).)</option>
+                                </select>
+                              </div>
+
+                              <div class="input-field">
+                                <label>DEADLINE / DATE</label>
+                                <input type="datetime-local" name="deadline" placeholder="Due Date" required>
+                              </div>
+                        
+                              <div class="input-field size-lb">
+                                  <label>PAPER TOPIC/TITLE</label>
+                                  <input name="title" type="text" placeholder="Give the topic of you assignment." required>
+                              </div>
+
+                             
+                          </div>
+
+                                                  
+                          <div class="message">
+                            <label for="">DESCRIPTION</label>
+                            <textarea name="description" placeholder="Please share the order instructions. You can also attach documents after placing your order." required></textarea>
+                          </div>
+                          
+                        
+
+                          <button class="nextBtn">
+                              <a href="{% url 'dashboard' %}">
+                                  <span class="btnText"> <i class="bi bi-shield-fill-check"></i>Place Order</span>
+                                  <i class="uil uil-navigator"></i>
+                              </a>
+                          </button>
+                      </div> 
+                  </div>
+              </form>
+          </div>
+          </div>
+          <div class="col-lg-4">
+
+            <div class="sidebar">
+              <div class="cart">
+                <!-- <div class="cart-info">
+                  <h3>Confirm Order Details</h3>
+                  <p>Service:</p>
+                  <p>Assignment Topic:</p> 
+                  <p>Assignment Type:</p>
+                  <p>Pages/Words:</p>
+                  <p>Education Level:</p>
+                  <p>Writer Level:</p>
+                  <p>Your Deadline:</p>
+                </div>
+                color:#1AA2B9
+                <hr> -->
+                <div class="cart-price" style="font-size: 24px; font-weight:600; color:#1ab92a;">
+                Total Price: $<span id="price"></span>
+                </div>
+                <hr>
+              
+                
+              </div>
+
+            </div><!-- End Sidebar -->
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Blog Details Section -->
+
+  </main><!-- End #main -->
+  
+   <!-- Vendor JS Files -->
+   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'vendor/aos/aos.js' %}"></script>
+   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+   <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+   <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+   <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+   <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+   <!-- Template Main JS File -->
+   <script src="{% static 'vendor/owl-carousel/owl.carousel.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
+   <script src="{% static 'js/money.js' %}"></script>
+
+{% endblock %}

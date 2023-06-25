@@ -1,0 +1,120 @@
+<div class="ops-sm-3 sidebar">
+
+    <div class="side-order-btn" style="background-color: #E7C353;">
+        <a href="{% url 'nursingorderform' %}">
+            <div class="text-white"><img src="https://templates.essaywpthemes.com/order/assets/images/cart.svg"> Place New Order </div>
+        </a>
+    </div>
+    <div class="sidebar-links">
+        <a href="{% url 'Dashboard' %}">
+            <div class="side-text">
+
+                <img src="https://templates.essaywpthemes.com/order/assets/images/orders.svg" class="icon-badge"> My Orders <div class="side-badge">{{orders_count}}</div>
+            </div>
+        </a>
+    </div>
+    <div class="sidebar-links">
+        <a href="{% url 'nursing_bidding' %}">
+            <div class="side-text">
+
+                <img src="https://templates.essaywpthemes.com/order/assets/images/orders.svg" class="icon-badge"> Bidding <div class="side-badge">{{bidding_orders_count}}</div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="sidebar-links">
+        <a href="{% url 'nursing_inprogress' %}">
+            <div class="side-text">
+
+                <img src="https://templates.essaywpthemes.com/order/assets/images/orders.svg" class="icon-badge"> In Progress <div class="side-badge">{{progress_orders_count}}</div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="sidebar-links">
+        <a href="{% url 'nursing_completed' %}">
+            <div class="side-text">
+
+                <img src="https://templates.essaywpthemes.com/order/assets/images/orders.svg" class="icon-badge"> Completed <div class="side-badge">{{completed_orders_count}}</div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="sidebar-links">
+        <a href="{% url 'nursing_revision' %}">
+            <div class="side-text">
+
+                <img src="https://templates.essaywpthemes.com/order/assets/images/orders.svg" class="icon-badge"> Revision <div class="side-badge">{{revision_orders_count}}</div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="sidebar-links">
+        <a href="{% url 'nursing_approved' %}">
+            <div class="side-text">
+
+                <img src="https://templates.essaywpthemes.com/order/assets/images/orders.svg" class="icon-badge"> Approved <div class="side-badge">{{approved_orders_count}}</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="sidebar-links">
+        <a href="{% url 'nursing_order_messages' %}">
+            <div class="side-text">
+                <img src="https://templates.essaywpthemes.com/order/assets/images/messages.svg" class="icon-badge"> Messages <div class="side-badge">{{ messages_count }}</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="sidebar-links">
+        <a href="{% url 'nursing_transactions' %}"> 
+            <div class="side-text">
+                <img src="https://templates.essaywpthemes.com/order/assets/images/pay.svg" class="icon-badge"> Transactions
+            </div>
+        </a>
+    </div>
+
+    <!--<div class="sidebar-links">-->
+    <!--    <a href="">-->
+    <!--        <div class="side-text">-->
+    <!--            <img src="https://templates.essaywpthemes.com/order/assets/images/settings.svg" class="icon-badge"> Edit Profile-->
+    <!--        </div>-->
+    <!--    </a>-->
+    <!--</div>-->
+
+    <!--
+    <div class="ops-sm-12 alert alert-info text-center">
+        <h6> Tip Writer </h6>
+        <hr />
+
+        <form role="form" name="form" id="myform" action="https://templates.essaywpthemes.com/order/Corders/tipwriter" method="POST">
+
+            <div class="form-group row">
+                <label class="ops-sm-12 text-left">Writer/Editor ID</label>
+                <input type="number" value="" name="writer_id" class="form-control ops-sm-12 border-default" placeholder="Enter ID" required>
+
+            </div>
+
+            <br />
+
+            <div class="form-group row">
+                <label class="ops-sm-12  text-left">Amount </label>
+                <input type="number" min="15" value="" name="tipamount" class="form-control ops-sm-12 border-default" placeholder="Amount" required>
+
+            </div>
+
+            <div class="form-group row">
+                <button type="submit" class="btn-outline btn-xl js-scroll-trigger">Tip Writer</button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+-->
+
+
+    <br />
+</div>

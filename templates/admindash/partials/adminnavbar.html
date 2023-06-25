@@ -1,0 +1,40 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+    <div class="container">
+      <div class="logo-box" style="background-color: white;">
+        <a class="current" href="https://academiawriter.com/admindashboard" title=""><img src="/order/assets/images/logo_1.svg" class="hero-logo" alt=""></a>
+      </div>
+      <form action="https://templates.essaywpthemes.com/order/adorders/getid" method="post" class="row">
+        <input name="searchid" class="col-sm-9 form-control header-box border-default" placeholder="Search order by ID" type="text">
+        <button type="submit" class="btn-search"> <i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link rounded js-scroll-trigger" href=""><img src="https://templates.essaywpthemes.com/order/assets/images/settings.svg"> Settings</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="https://templates.essaywpthemes.com/order/assets/images/messages.svg"><span class="header-badge blue">1</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="https://templates.essaywpthemes.com/order/assets/images/alerts.svg"><span class="header-badge green">8 </span>
+            </a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link rounded js-scroll-trigger" href="{% url 'writerslogout' %}"><img src="https://templates.essaywpthemes.com/order/assets/images/logout.svg" class="logout">
+            <strong> Logout </strong></a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+             {{user.username}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>    <!-- Portfolio Grid Section -->

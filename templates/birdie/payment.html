@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %} 
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Pay for your Order</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://templates.essaywpthemes.com/order/public/bootstrap.min.css" rel="stylesheet">
+    <link href="https://templates.essaywpthemes.com/order/public/bootstrap.min.css" rel="stylesheet">
+    <link href= "{% static 'css/main.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://templates.essaywpthemes.com/order/public/font-awesome/css/fontawesome-all.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="https://templates.essaywpthemes.com/order/public/bootstrap/opskill-styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/jquery.min.js"></script>
+    <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/f53431686e.js"></script>
+    <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+    
+
+
+    <script src="https://unpkg.com/intasend-inlinejs-sdk@3.0.2/build/intasend-inline.js"></script>
+</head>
+
+
+<div class="wrbody">
+    <header class="wrheader">
+      {% include 'birdie/partials/navbar.html' %}
+    </header>
+    <div class="container">
+        <div><br><br></div>
+
+
+        <div class="row bg-white clients">
+
+                        <marquee width="100%" direction="horizontal" height="30%">
+                            </marquee>
+                            {% include 'birdie/partials/clientsidebar.html' %}
+
+            <div class="ops-sm-9 features">
+
+                <!--make payment modal-->
+                <div id="how-it-works" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div style="padding: 20px;">
+                                <h3 class="lead">How it <span class="text-success">Works</span></h3>
+                                <ul class="list-unstyled" style="line-height: 2">
+                                    <li><span class="fa fa-check text-success"></span> Place your order</li>
+                                    <li><span class="fa fa-check text-success"></span> Proceed to Payment</li>
+                                    <li><span class="fa fa-check text-success"></span> Assign a Writer </li>
+                                    <li><span class="fa fa-check text-success"></span> Download your paper</li>
+                                </ul>
+                                <p><a href="/order" class="btn btn-info btn-block">Order Now</a></p>
+                            </div>
+
+
+                        </div><!--modal content-->
+                    </div><!--modal dialog-->
+                </div>
+<meta name="csrf-token" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<div class="row ops-sm-10 mx-auto">
+  <div class="ops-sm-12">
+    <!--     <a class="btn ops-sm-5 btn-danger text-white"
+    href="https://templates.essaywpthemes.com/order/corders/buy/70135">Proceed to Checkout
+    ($1) </a> -->
+
+    <h4>Make payment for <strong> $ {{ order.price}} </strong></h4>
+    <hr>
+
+
+    
+    <!-- 
+  <a class="btn ops-sm-12 btn-success text-white" href="https://templates.essaywpthemes.com/order/corders/buy/70135">CLICK HERE TO MAKE PAYMENT NOW</a> 
+-->
+
+
+
+    <a style="display:none;"> class="btn ops-sm-12 btn-success text-white" href="https://templates.essaywpthemes.com/order/corders/buy2/70135">CLICK HERE TO MAKE PAYMENT NOW</a>
+
+          <div id="smart-button-container">
+        <div style="display: none;">
+          <div style="text-align: center"><label for="description"> </label>
+            <input type="text" name="descriptionInput" id="description" maxlength="127" value="70135">
+          </div>
+          <p id="descriptionError" style="visibility: hidden; color:red; text-align: center;">Please enter a description</p>
+          <div style="text-align: center"><label for="amount"> </label>
+            <input name="amountInput" type="number" id="amount" value="1"><span> AUD</span>
+          </div>
+          <p id="priceLabelError" style="visibility: hidden; color:red; text-align: center;">Please enter a price</p>
+          <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label>
+            <input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="70135">
+          </div>
+          <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Please enter an Invoice ID</p>
+
+        </div>
+        <div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container"></div>
+      </div>
+    <hr>
+      
+      </div>
+    
+
+      <!--
+        <a class="btn ops-sm-12 btn-success text-white" href="corders/paynow/">CLICK HERE TO MAKE PAYMENT NOW</a> 
+
+      <div class="container">
+
+
+
+        <div class="row">
+
+          <div class="col-md-12">
+            <pre id="token_response"></pre>
+          </div>
+
+        </div>
+
+        <div class="col-md-12">
+          <input type="hidden" id="amount" placeholder="amt" value="1">
+          <h5 class="pay-title">Pay with Stripe</h5>
+          <button class="stripebtn" onclick="pay(50)">Pay with Stripe ( $1)</button>
+
+        </div>
+
+      </div>
+-->
+
+    
+    <div><br></div>
+
+
+
+
+  </div>
+
+  <div class="ops-sm-12" style="display: none;">
+    <br>
+    <hr />
+    <h6> Personal Information </h6>
+    <hr />
+    <table class="table table-condensed">
+      <tbody>
+        <tr class="row">
+          <td class="titlecolumn">Name:</td>
+          <td class="desccolumn">Client</td>
+        </tr>
+        <tr class="row">
+          <td class="titlecolumn">Email</td>
+          <td>.com</td>
+        </tr>
+
+        <tr class="row">
+          <td class="titlecolumn">Phone</td>
+          <td>+112345678</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ops-sm-12">
+
+    <h6 class="dash-title"> Requirements </h6>
+    <table class="table table-condensed">
+      <tbody>
+
+        <tr class="row">
+          <td class="titlecolumn">Order ID</td>
+          <td class="desccolumn"> #{{order.id}}</td>
+        </tr>
+        <tr class="row">
+          <td class="titlecolumn">Order Title</td>
+          <td class="desccolumn">{{order.title}}</td>
+        </tr>
+        <tr class="row">
+          <td class="titlecolumn">Type of Service</td>
+          <td class="desccolumn">{{order.order_type}}</td>
+        </tr>
+        <tr class="row">
+          <td class="titlecolumn">Format</td>
+          <td class="desccolumn">MLA</td>
+        </tr>
+        <tr class="row">
+          <td class="titlecolumn">Pages: </td>
+          <td class="desccolumn">{{order.pages}}
+          </td>
+        </tr>
+       
+        <tr class="row">
+          <td class="titlecolumn">Deadline</td>
+          <td class="desccolumn">{{order.deadline}}
+          </td>
+        </tr>
+        <tr class="row" style="display:none;">
+          <td class="titlecolumn">Academic level:</td>
+          <td class="desccolumn">{{order.academic_level}}</td>
+        </tr>
+        <tr class="row" style="display:none;">
+          <td class="titlecolumn">Number of sources:</td>
+          <td class="desccolumn">{{order.sources}} </td>
+        </tr>
+        <tr class="row">
+          <td class="titlecolumn">Paper instructions:</td>
+          <td class="desccolumn">
+                        <p>{{order.description}}</p></td>
+        </tr>
+
+       
+      </tbody>
+    </table>
+
+
+
+  </div>
+
+  <div class="ops-sm-12">
+    <!--  <a class="btn ops-sm-5 btn-danger text-white"
+    href="corders/buy/">Proceed to Checkout
+    ($) </a> -->
+
+
+  </div>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=Ad37LvDJzp6LyGPLMk6EBjdJWRLBMuFgnQvUlTM6EaNDhKLxvc0V7OKxk4SMXVehfsXn8rNrzjSuW0yt&currency=USD" data-sdk-integration-source="button-factory"></script>
+
+<!-- <script src="https://www.paypal.com/sdk/js?client-id=Ac7iovLN3vmKbZjRFj6TLe2BgST6XQgQEr-EH6gu-QCyASTGXV539i-tINlF5z7u_UN5UTqxoSWxD_y1&currency=USD" data-sdk-integration-source="button-factory"></script>  -->
+<script>
+  function initPayPalButton() {
+    var description = document.querySelector('#smart-button-container #description');
+    var amount = document.querySelector('#smart-button-container #amount');
+    var descriptionError = document.querySelector('#smart-button-container #descriptionError');
+    var priceError = document.querySelector('#smart-button-container #priceLabelError');
+    var invoiceid = document.querySelector('#smart-button-container #invoiceid');
+    var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
+    var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
+
+    var elArr = [description, amount];
+
+    if (invoiceidDiv.firstChild.innerHTML.length > 1) {
+      invoiceidDiv.style.display = "block";
+    }
+
+    var purchase_units = [];
+    purchase_units[0] = {};
+    purchase_units[0].amount = {};
+
+    function validate(event) {
+      return event.value.length > 0;
+    }
+
+    paypal.Buttons({
+      style: {
+        color: 'gold',
+        shape: 'rect',
+        label: 'paypal',
+        layout: 'vertical',
+
+      },
+
+
+
+      onClick: function() {
+        if (description.value.length < 10000) {
+          descriptionError.style.visibility = "visible";
+        } else {
+          descriptionError.style.visibility = "hidden";
+        }
+
+        if (amount.value.length < 10000) {
+          priceError.style.visibility = "visible";
+        } else {
+          priceError.style.visibility = "hidden";
+        }
+
+        if (invoiceid.value.length < 10000 && invoiceidDiv.style.display === "block") {
+          invoiceidError.style.visibility = "visible";
+        } else {
+          invoiceidError.style.visibility = "hidden";
+        }
+
+
+
+        if (invoiceid.value !== '') {
+          purchase_units[0].invoice_id = invoiceid.value;
+          purchase_units[0].description = description.value;
+          purchase_units[0].amount.value = amount.value;
+        }
+      },
+
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: purchase_units,
+        });
+      },
+
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          // alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          window.location = "https://templates.essaywpthemes.com/order/corders/success/70135";
+
+        });
+      },
+
+      onError: function(err) {
+        // console.log(err);
+        alert('Payment denied, please try again or use an alternative method');
+      }
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+</script>
+
+<script type="text/javascript">
+  new window.IntaSend({
+      publicAPIKey: "ISPubKey_live_9ead1887-1963-45a6-bcb6-fb426a3a40c4",
+      live: true //set to true when going live
+    })
+    .on("COMPLETE", (results) => {
+      window.location = "corders/success/";
+    })
+    .on("FAILED", (results) => console.log("Do something on failure", results))
+    .on("IN-PROGRESS", (results) => console.log("Payment in progress status", results))
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+
+
+<script type="text/javascript">
+  function pay(amount) {
+    var handler = StripeCheckout.configure({
+
+      key: 'pk_test_qblFNYngBkEdjEZ16jxxoWSM',
+
+      locale: 'auto',
+
+      token: function(token) {
+
+        // You can access the token ID with `token.id`.
+
+        // Get the token ID to your server-side code for use.
+
+        //console.log('Token Created!!');
+
+        // console.log(token)
+
+        $('#token_response').append('<p>payment being processed</p>');
+        var amount = document.getElementById('amount').value;
+        var amount = amount * 100;
+        var description = 'payment for #70135';
+        $.ajax({
+
+          url: "https://templates.essaywpthemes.com/order/corders/payment_stripe",
+
+          method: 'post',
+
+          data: 'tokenId=' + token.id + '&amount=' + amount + '&description=' + description,
+
+          dataType: "json",
+
+          success: function(response) {
+
+            // console.log(response.data);
+
+            $('#token_response').append('<p><br>Payment made successfully, we are redirecting you to next page</p>');
+            window.location = "https://templates.essaywpthemes.com/order/corders/success/70135";
+
+          }
+
+        })
+
+      }
+
+    });
+
+
+
+    handler.open({
+
+      name: 'Pay for your order',
+
+      description: 'powered by Stripe',
+
+      amount: '100'
+
+    });
+
+  }
+</script>
+

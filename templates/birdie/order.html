@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}  
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Order Details</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://templates.essaywpthemes.com/order/public/bootstrap.min.css" rel="stylesheet">
+    <link href="https://templates.essaywpthemes.com/order/public/bootstrap.min.css" rel="stylesheet">
+    <link href= "{% static 'css/main.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://templates.essaywpthemes.com/order/public/font-awesome/css/fontawesome-all.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="https://templates.essaywpthemes.com/order/public/bootstrap/opskill-styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/jquery.min.js"></script>
+    <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/f53431686e.js"></script>
+    <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+    
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script src="https://unpkg.com/intasend-inlinejs-sdk@3.0.2/build/intasend-inline.js"></script>
+
+          <!-- Vendor JS Files -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'vendor/owl-carousel/owl.carousel.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/money.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.raty/2.9.0/jquery.raty.min.js"></script>
+
+<style>
+
+      .chat-box-main {
+        margin-top: -380px;
+      }
+      .wrap-text-td {
+        word-wrap: break-word;
+    }
+
+        .card {
+      border-radius: 20px;
+      border: none;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      margin-top: 30px;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .btn {
+      margin: 20px;
+    }
+
+    .rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.star {
+  cursor: pointer;
+  margin: 0.5em;
+  color: #ddd;
+}
+
+.star.active,
+.star:hover {
+  color: #ff9800;
+}
+
+.star {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.star.active {
+  color: #f5b301;
+}
+</style>
+
+
+
+</head>
+
+<div class="wrbody">
+  <header class="wrheader">
+    {% include 'birdie/partials/navbar.html' %}
+  </header>
+  <div class="container">
+      <div><br><br></div>
+
+
+      <div class="row bg-white clients">
+
+                      <marquee width="100%" direction="horizontal" height="30%">
+                          </marquee>
+                          {% include 'birdie/partials/clientsidebar.html' %}
+
+          <div class="ops-sm-9 features">
+
+              <!--make payment modal-->
+              <div id="how-it-works" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div style="padding: 20px;">
+                              <h3 class="lead">How it <span class="text-success">Works</span></h3>
+                              <ul class="list-unstyled" style="line-height: 2">
+                                  <li><span class="fa fa-check text-success"></span> Place your order</li>
+                                  <li><span class="fa fa-check text-success"></span> Proceed to Payment</li>
+                                  <li><span class="fa fa-check text-success"></span> Assign a Writer </li>
+                                  <li><span class="fa fa-check text-success"></span> Download your paper</li>
+                              </ul>
+                              <p><a href="/order" class="btn btn-info btn-block">Order Now</a></p>
+                          </div>
+
+
+                      </div><!--modal content-->
+                  </div><!--modal dialog-->
+              </div>  
+<link rel="stylesheet" type="text/css" href="https://templates.essaywpthemes.com/order/public/dropzone/basic.min.css">
+<script type="text/javascript" src="https://templates.essaywpthemes.com/order/public/dropzone/jquery.js"></script>
+<script type="text/javascript" src="https://templates.essaywpthemes.com/order/public/dropzone/dropzone.min.js"></script>
+
+<section class="download features orderview" id="">
+
+  <div class="row">
+    <div class="ops-sm-12">
+      
+
+              <div class="row">
+        <div class="ops-sm-8">
+
+          <h4>
+            <span class="orderid">Order ID: <strong> #{{order.id}}</strong> 
+            
+            
+            
+            </span>
+                            <span class="deds">
+                <y href="#" data-toggle="tooltip" class="" title="Service">{{order.order_type}}</y>
+              </span>
+                          <a class='due' href=""> {{order.status}} </a>
+                                        <hr>
+            <span class="ordertitle">Topic: <strong> {{order.title}}</strong></span>
+        </div>
+
+      </div>
+      <hr />
+    </div>
+
+    <div class="ops-sm-12">
+      <ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active btn-default btn-sm" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Instructions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn-default btn-sm" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Order Files ({{filescount}})</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn-default btn-sm" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="true">Downloads ({{ adminfilescount }})</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link btn-default btn-sm" id="contact-tab" data-toggle="tab" href="#ratings" role="tab" aria-controls="ratings" aria-selected="true">Ratings</a>
+        </li>
+      </ul>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <div class="ops-sm-12">
+      <div class="tab-content ops-sm-12" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+          <div class="row">
+            <div class="ops-sm-6">
+              <table class="table">
+                <tbody>
+                  <tr class="row">
+                      <td class="ops-sm-4 bg-light text-right">Subject</td>
+                      <td class="ops-sm-8 text-left">{{order.subject_area}}</td>
+                  </tr>
+                 
+                  <tr class="row">
+                      <td class="ops-sm-4 bg-light text-right">Pages</td>
+                      <td class="ops-sm-8 text-left">{{order.pages}} ({{order.spacing}}) </td>
+                  </tr>
+                  
+                  <tr class="row">
+                    <td class="ops-sm-4 bg-light text-right">Format</td>
+                    <td class="ops-sm-8 text-left">{{order.style}}</td>
+                  </tr>
+                  <tr class="row">
+                      <td class="ops-sm-4 bg-light text-right">Sources</td>
+                      <td class="ops-sm-8 text-left">{{order.sources}}</td>
+                    </tr>
+                  <tr class="row">
+                    <td class="ops-sm-4 bg-light text-right">Amount:</td>
+                    <td class="ops-sm-8 text-left">${{order.price}} </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="ops-sm-4 bg-light text-right">Deadline</td>
+                    <td class="ops-sm-8 text-left">{{order.deadline}}</td>
+                  </tr>
+        
+                  <tr class="row">
+                    <td class="ops-sm-4 bg-light text-right">Language</td>
+                    <td class="ops-sm-8 text-left">{{order.language}}</td>
+                  </tr>
+                  <tr class="row">
+                    <td class="ops-sm-4 bg-light text-right">Academic Level </td>
+                    <td class="ops-sm-8 text-left">{{order.academic_level}}</td>
+                  </tr>
+        
+                </tbody>
+              </table>
+              <div >
+                <div class="alert alert-info">
+                  Order Instructions
+                </div>
+                <div class="panel-body">
+
+                       <div style="background-color: #ffffff;">
+
+                         {{order.description|safe}}
+
+                      </div>
+                </div>
+               
+              </div>
+            </div>
+
+            <div class="ops-sm-6">
+
+              <div class="chat-box-div">
+                <div class="alert alert-info">
+                    CHAT HISTORY
+                </div>
+                <form role="form" action="{% url 'order_chat' order_id=order.id %}" method="POST" id="chat-form">
+                    {% csrf_token %}
+                    <input type="hidden" name="msg_orderid" value="{{ order.id }}" readonly>
+                    <input type="hidden" name="msg_senderid" value="{{ request.user.id }}" readonly>
+                    <input type="hidden" name="order_clientid" value="{{ order.client.id }}" readonly>
+                    <input type="hidden" name="order_writer" value="{% if order.writer %}{{ order.writer.id }}{% else %}0{% endif %}" readonly>
+                    <input type="hidden" name="msg_sendername" value="{{ request.user.username }}" readonly>
+                    <div class="chat-box-footer">
+                        <div class="form-group">
+                            <select name="msg_to" class="border-default custom-select" id="msg-to" required>
+                                <option value="">Message to Select</option>
+                                <option value="writer">Writer</option>
+                                <option value="client">Client</option>
+                                <option value="support">Support/Editor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="msg_body" id="msg-body" required></textarea>
+                        </div>
+                        <div class="input-group text-right">
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="submit" id="send-message-btn">SEND</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <div class="panel-body chat-box-main">
+                    {% for message in chat_history %}
+                        {% if message.sender == request.user %}
+                            <div class="chat-box-right">
+                                <div class="chat-box-right-text">
+                                    <p>{{ message.sender_type}}  to {{ message.recipient_type}} </p>
+                                    <p>{{ message.body }}</p>
+                                    <span class="chat-box-right-time">{{ message.timestamp|date:"F d, Y H:i A" }}</span>
+                                </div>
+                                
+                            </div>
+                        {% else %}
+                            <div class="chat-box-left">
+                                <div class="chat-box-left-img">
+                                    <img src="{% static 'img/user1.png' %}" alt="user">
+                                </div>
+                                <div class="chat-box-left-text">
+                                    <p>{{ message.body }}</p>
+                                    <span class="chat-box-left-time">{{ message.timestamp|date:"F d, Y H:i A" }}</span>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% empty %}
+                        <p>No chat history yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-pane fade" class="profile" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+          <div class="row">
+
+          
+            {% if filescount != 0 %}
+            
+            <table class="table table-striped table-advance table-hover">
+              <tbody>
+                <tr>
+                  <th><i class="icon_document_alt"></i> File Name</th>
+                  <th><i class="icon_profile"></i> Date</th>
+                </tr>
+                {% for file in files %}
+                <tr>
+                  <td>
+                    <a href="{{file.file_url}}" download target="_blank">{{file.file}}</a>
+                  </td>
+                  <td>{{file.uploaded_at}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            
+            {% endif %}
+  
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Do you want to upload a file for this order?</h5>
+                <a class="btn btn-danger text-white btn-sm" href="{% url 'add_files' order.id %}">Click here to upload files</a>
+              </div>
+            </div>
+            
+          </div>
+
+
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="col">
+            {% for file in adminfiles %}
+    
+              
+              <hr />
+    
+              <table class="table table-striped table-advance table-hover">
+                <tbody>
+                  
+                    <tr>
+                      <th><i class="icon_document_alt"></i> File Name</th>
+                      <th><i class="icon_document_alt"></i> Status</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href="{{file.file_url}}" download target="_blank">{{file.file}} - {{file.created_at}}<i class="fa fa-download"></i></a>
+                      </td>
+                      <td> {{file.file_status}}</td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+              {% endfor %}
+              {% if order.status == "Completed" %}
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">What do you want to do with this order?</h5>
+                  <button class="btn btn-success waves-effect waves-light w-lg" data-toggle="modal" data-target="#approveModal">Approve</button>
+                  <button class="btn btn-warning waves-effect waves-light w-lg" data-toggle="modal" data-target="#revisionModal">Request Revision</button>
+                </div>
+              </div>
+            {% endif %}
+            
+            <!-- Revision Modal -->
+            <div class="modal fade" id="revisionModal" tabindex="-1" role="dialog" aria-labelledby="revisionModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="revisionModalLabel">Request for Revision</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="post" action="{% url 'order' order.id %}">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="remark">Revision Instructions:</label>
+                        <textarea class="form-control" rows="3" name="remark" required></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="new_deadline">New Deadline:</label>
+                        <input type="datetime-local" class="form-control" name="new_deadline" required>
+                      </div>
+                      <input type="hidden" name="status" value="Revision">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Approve Modal -->
+            <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="approveModalLabel">Approve Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="post" action="{% url 'order' order.id %}">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="remark">Remark:</label>
+                        <textarea class="form-control" rows="5" name="remark" required></textarea>
+                      </div>
+                      <div class="form-group">
+                        <div class="rating">
+                          <label for="rating">Rating:</label>
+                          <span class="star" data-value="1">&#9733;</span>
+                          <span class="star" data-value="2">&#9733;</span>
+                          <span class="star" data-value="3">&#9733;</span>
+                          <span class="star" data-value="4">&#9733;</span>
+                          <span class="star" data-value="5">&#9733;</span>
+                          <input type="hidden" name="rating" value="0">
+                        </div>
+                        
+                      </div>
+                      <input type="hidden" name="status" value="Approved">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+        
+                  {% if reportcount != 0 %}
+                  <h3 class="text-center text-danger">Tracking History</h3>
+                  <table class="table table-striped table-advance table-hover">
+                      <tbody>
+                      <tr>
+                          <th><i class="icon_document_alt"></i> Revision Instructions</th>
+                          <th><i class="icon_profile"></i> Status</th>
+                          <th><i class="icon_calendar"></i> New Deadline</th>
+                          <th><i class="icon_calendar"></i> Time</th>
+                      </tr>
+                      {% for i in ordertracking %}
+                      <tr>
+                          <td>{{i.remark}}</td>
+                          <td>{{i.status}}</td>
+                          <td>{{i.new_deadline}}</td>
+                          <td>{{i.UpdationDate}}</td>
+        
+                      </tr>
+                      {% endfor %}
+        
+                      </tbody>
+                  </table>
+                  {% endif %}
+        
+        
+                </section>
+            </div>
+        </div>
+        </div>
+          
+        <div class="tab-pane fade" id="ratings" role="tabpanel" aria-labelledby="contact-tab">
+
+          <div class="col-lg-12">
+            <section class="panel">
+    
+              {% if reportcount != 0 %}
+              
+              <table class="table table-striped table-advance table-hover">
+                  <tbody>
+                  <tr>
+                      <th><i class="icon_document_alt"></i> Comment</th>
+                      <th><i class="icon_profile"></i> Rating (out of 5) </th>
+                     
+                  </tr>
+                  {% for i in ordertracking %}
+                  <tr>
+                      <td>{{i.remark}}</td>
+                      <td>{{i.rating}}</td>
+                      
+    
+                  </tr>
+                  {% endfor %}
+    
+                  </tbody>
+              </table>
+  
+              
+  
+              {% endif %}
+    
+    
+            </section>
+        </div>
+
+        </div>
+
+       
+      </div>
+    </div>
+
+  </div>
+  
+
+  <script>
+    $(document).ready(function() {
+         // Scroll chat messages to top
+            $('.chat-box-main').scrollTop(0);
+        // Submit form using AJAX
+        $('#chat-form').on('submit', function(e) {
+            e.preventDefault();
+            var form = $(this);
+            var url = form.attr('action');
+            var formData = form.serialize();
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    $('#msg-body').val(''); // Clear message input field
+                    $('#msg-to').val(''); // Clear message recipient field
+                    $('.chat-box-main').append(response); // Append new message to chat box
+                    $('.chat-box-main').scrollTop($('.chat-box-main')[0].scrollHeight); // Scroll chat messages to bottom
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log(xhr.status + ": " + xhr.responseText); // Log error to console
+                }
+            });
+        });
+
+        // Poll server for new messages every 5 seconds
+        setInterval(function() {
+            var lastMessageId = $('.chat-box-main .chat-box:last-child').data('message-id');
+            var url = "{% url 'order_chat' order_id=order.id %}?last_message_id=" + lastMessageId;
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    if (response) {
+                      $('.chat-box-main').append(response); // Append new message to chat box
+                    $('.chat-box-main').scrollTop(0); // Scroll chat messages to top
+                    }
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log(xhr.status + ": " + xhr.responseText); // Log error to console
+                }
+            });
+        }, 5000);
+    });
+    $(document).on('click', '.chat-message', function() {
+      var message_id = $(this).data('message-id');
+      var is_read = $(this).hasClass('read');
+      if (!is_read) {
+          $.ajax({
+              type: 'POST',
+              url: '/mark-message/' + message_id + '/',
+              data: {
+                  'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+              },
+              success: function(response) {
+                  if (response.success) {
+                      $('.chat-message[data-message-id=' + message_id + ']').addClass('read');
+                  }
+              },
+              dataType: 'json',
+          });
+      }
+  });
+
+</script> 
+<script>
+      const stars = document.querySelectorAll('.star');
+      const ratingInput = document.querySelector('input[name="rating"]');
+    
+      stars.forEach(star => {
+        star.addEventListener('click', () => {
+          const value = parseInt(star.dataset.value);
+          stars.forEach(s => s.classList.remove('active'));
+          star.classList.add('active');
+          ratingInput.value = value;
+        });
+      });
+</script>
+    
+
+<script>
+      $(document).ready(function() {
+        // Handler for modal buttons
+        $('.modal-action-button').click(function() {
+          var modalId = $(this).data('modal-id');
+          var action = $(this).data('action');
+    
+          // If the action is revision, show the revision modal
+          if (action === 'revision') {
+            $('#revisionModal-' + modalId).modal('show');
+          }
+    
+          // If the action is approve, show the approve modal
+          if (action === 'approve') {
+            $('#approveModal-' + modalId).modal('show');
+          }
+        });
+      });
+</script>
+<script>
+    const revisionBtn = document.getElementById('revision-btn');
+    const approveBtn = document.getElementById('approve-btn');
+    const statusInput = document.getElementById('status-input');
+
+    revisionBtn.addEventListener('click', () => {
+        statusInput.value = 'Revision';
+    });
+
+    approveBtn.addEventListener('click', () => {
+        statusInput.value = 'Approved';
+    });
+</script>
+
+
+    <script type="text/javascript">
+      calculate = function() {
+        var resources = document.getElementById('a1').value;
+        var minutes = document.getElementById('a2').value;
+        document.getElementById('a3').value = parseFloat(resources) * parseFloat(minutes);
+
+      }
+    </script>
+
+
+
+
+
+</section>
+
+
+<script type="text/javascript">
+  //upload//
+//selecting all required elements
+const dropArea = document.querySelector(".drag-area"),
+dragText = dropArea.querySelector("header"),
+button = dropArea.querySelector("button"),
+input = dropArea.querySelector("input");
+let file; //this is a global variable and we'll use it inside multiple functions
+
+button.onclick = ()=>{
+  input.click(); //if user click on the button then the input also clicked
+}
+
+input.addEventListener("change", function(){
+  //getting user select file and [0] this means if user select multiple files then we'll select only the first one
+  file = this.files[0];
+  dropArea.classList.add("active");
+  showFile(); //calling function
+});
+
+
+//If user Drag File Over DropArea
+dropArea.addEventListener("dragover", (event)=>{
+  event.preventDefault(); //preventing from default behaviour
+  dropArea.classList.add("active");
+  dragText.textContent = "Release to Upload File";
+});
+
+//If user leave dragged File from DropArea
+dropArea.addEventListener("dragleave", ()=>{
+  dropArea.classList.remove("active");
+  dragText.textContent = "Drag & Drop to Upload File";
+});
+
+//If user drop File on DropArea
+dropArea.addEventListener("drop", (event)=>{
+  event.preventDefault(); //preventing from default behaviour
+  //getting user select file and [0] this means if user select multiple files then we'll select only the first one
+  file = event.dataTransfer.files[0];
+  showFile(); //calling function
+});
+
+// function showFile(){
+//   let fileType = file.type; //getting selected file type
+//   let validExtensions = ["image/jpeg", "image/jpg", "image/png" \.doc|\.docx|\.odt|\.pdf|\.tex|\.txt|\.rtf|\.wps|\.wks|\.wpd]; //adding some valid image extensions in array
+//   if(validExtensions.includes(fileType)){ //if user selected file is an image file
+//     let fileReader = new FileReader(); //creating new FileReader object
+//     fileReader.onload = ()=>{
+//       let fileURL = fileReader.result; //passing user file source in fileURL variable
+//         // UNCOMMENT THIS BELOW LINE. I GOT AN ERROR WHILE UPLOADING THIS POST SO I COMMENTED IT
+//       // let imgTag = `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
+//       dropArea.innerHTML = imgTag; //adding that created img tag inside dropArea container
+//     }
+//     fileReader.readAsDataURL(file);
+//   }else{
+//     alert("This is not an Image File!");
+//     dropArea.classList.remove("active");
+//     dragText.textContent = "Drag & Drop to Upload File";
+//   }
+// }
+
+</script>
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'vendor/owl-carousel/owl.carousel.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/money.js' %}"></script>
+
+
+<script src="https://www.paypal.com/sdk/js?client-id=&currency=USD" data-sdk-integration-source="button-factory"></script>
+
+<!-- <script src="https://www.paypal.com/sdk/js?client-id=Ac7iovLN3vmKbZjRFj6TLe2BgST6XQgQEr-EH6gu-QCyASTGXV539i-tINlF5z7u_UN5UTqxoSWxD_y1&currency=USD" data-sdk-integration-source="button-factory"></script>  -->
+<script>
+  function initPayPalButton() {
+    var description = document.querySelector('#smart-button-container #description');
+    var amount = document.querySelector('#smart-button-container #amount');
+    var descriptionError = document.querySelector('#smart-button-container #descriptionError');
+    var priceError = document.querySelector('#smart-button-container #priceLabelError');
+    var invoiceid = document.querySelector('#smart-button-container #invoiceid');
+    var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
+    var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
+
+    var elArr = [description, amount];
+
+    if (invoiceidDiv.firstChild.innerHTML.length > 1) {
+      invoiceidDiv.style.display = "block";
+    }
+
+    var purchase_units = [];
+    purchase_units[0] = {};
+    purchase_units[0].amount = {};
+
+    function validate(event) {
+      return event.value.length > 0;
+    }
+
+    paypal.Buttons({
+      style: {
+        color: 'gold',
+        shape: 'rect',
+        label: 'paypal',
+        layout: 'vertical',
+
+      },
+
+
+
+      onClick: function() {
+        if (description.value.length < 10000) {
+          descriptionError.style.visibility = "visible";
+        } else {
+          descriptionError.style.visibility = "hidden";
+        }
+
+        if (amount.value.length < 10000) {
+          priceError.style.visibility = "visible";
+        } else {
+          priceError.style.visibility = "hidden";
+        }
+
+        if (invoiceid.value.length < 10000 && invoiceidDiv.style.display === "block") {
+          invoiceidError.style.visibility = "visible";
+        } else {
+          invoiceidError.style.visibility = "hidden";
+        }
+
+
+
+        if (invoiceid.value !== '') {
+          purchase_units[0].invoice_id = invoiceid.value;
+          purchase_units[0].description = description.value;
+          purchase_units[0].amount.value = amount.value;
+        }
+      },
+
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: purchase_units,
+        });
+      },
+
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          // alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          window.location = "https://templates.essaywpthemes.com/order/corders/success/70135";
+
+        });
+      },
+
+      onError: function(err) {
+        // console.log(err);
+        alert('Payment denied, please try again or use an alternative method');
+      }
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+</script>
+
+<script type="text/javascript">
+  new window.IntaSend({
+      publicAPIKey: "",
+      live: true //set to true when going live
+    })
+    .on("COMPLETE", (results) => {
+      window.location = "corders/success/";
+    })
+    .on("FAILED", (results) => console.log("Do something on failure", results))
+    .on("IN-PROGRESS", (results) => console.log("Payment in progress status", results))
+</script>

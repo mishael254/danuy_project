@@ -1,0 +1,40 @@
+{% extends 'nursing/base.html' %}
+{% load static %} 
+{% block title %} | Nursing Assignment Service Add Files {% endblock %}
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Blog Details Section ======= -->
+    <section id="order-form" class="order-form" style="background-color: wheat">
+      <div class="container" data-aos="fade-up">
+    
+        <div class="row justify-content-center"> <!-- Center the form horizontally -->
+          <div class="col-lg-8">
+            <div class="order-container">
+              <header>
+                <!-- Add any header content here if needed -->
+              </header>
+    
+              <h1 style="text-align: center;">Add Files to Order "{{ order.title }}"</h1>
+    
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div style="text-align: center;">
+                  <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+              </form>
+            </div>
+          </div>
+    
+        </div>
+    
+      </div>
+    </section>
+    
+
+  </main><!-- End #main -->
+  
+  
+{% endblock %}

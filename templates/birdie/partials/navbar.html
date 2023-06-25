@@ -1,0 +1,82 @@
+{% load static %}
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center">
+
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center">
+        <img src="{% static 'imgs/Logo-dark.png' %}" alt="">
+        <!-- <h1>Impact<span>.</span></h1> -->
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}">How It Works</a></li>
+          <li><a href="writers">Writers</a></li>
+          <li class="dropdown"><a href="#"><span>Services</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="Online-Homework-Help">Online Homework Help</a></li>
+              <li><a href="Accounting-Class-help">Accounting Class help</a></li>
+              <li><a href="Finance-Assignment-Help">Finance Assignment Help</a></li>
+            </ul>
+          </li>
+          <li><a href="reviews">Reviews</a></li>
+          <li><a href="blog">Blog</a></li>
+          <li><a href="samples">Samples</a></li>
+          <li><a href="contact">Contact us</a></li>
+        </li>
+        {% if user.is_authenticated %}
+        <li 
+        {% if 'dashboard' in request.path %}
+          class="nav-item active mr-3"
+        {% else %}
+          class="nav-item  mr-3"
+         {% endif %}
+         >
+          <a class="nav-link" href="{% url 'dashboard' %}">
+            Welcome {{user.username}} </a>
+        </li>
+        <li class="nav-item active mr-3">
+          <a href="javascript:{document.getElementById('logout').submit()}" 
+          class="nav-link">
+          <i class="fas fa-sign-out-alt"></i>Logout
+        </a>
+        <form action="{% url 'logout' %}" id="logout" method="POST">
+          {% csrf_token %}
+          <input type="hidden">
+        </form>
+     
+
+        </li>
+        {% else %}
+        <li 
+        {% if 'register' in request.path %}
+          class="nav-item active mr-3"
+        {% else %}
+          class="nav-item  mr-3"
+         {% endif %}
+         >
+          <a class="nav-link" href="{% url 'register' %}">
+            <i class="fas fa-user-plus"></i> Register</a>
+        </li>
+        <li 
+        {% if 'login' in request.path %}
+          class="nav-item active mr-3"
+        {% else %}
+          class="nav-item  mr-3"
+         {% endif %}
+        >
+          <a class="nav-link" href="{% url 'login' %}">
+            <i class="fas fa-sign-in-alt"></i>
+
+            Login</a>
+        </li>
+        {% endif %}
+          <li><a href="{% url 'orderform' %}">ORDER NOW</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+  <!-- End Header -->

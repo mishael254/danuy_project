@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Dashboard</title>
+
+  <link href="https://templates.essaywpthemes.com/order/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/jquery.min.js"></script>
+  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Custom fonts for this template -->
+  <script src="https://kit.fontawesome.com/f53431686e.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="https://templates.essaywpthemes.com/order/public/admin/freelancer.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  {% include 'admindash/partials/adminnavbar.html' %}
+  <!-- Navigation -->
+ 
+    <section class="" id="portfolio">
+      <div class="container">
+        <div class="row">
+
+          {% include 'admindash/partials/adminsidenavbar.html' %}
+
+
+          <div class="col-sm-10 dash-home">
+
+  <script src="https://templates.essaywpthemes.com/order/public/assets/js/Chart.min.js"></script>
+  <script src="https://templates.essaywpthemes.com/order/public/assets/js/utils.js"></script>
+
+  {% if messages %}
+  <ul class="messages">
+  {% for message in messages %}
+  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+  
+  <div class="dashboard-counts no-padding-bottom">
+    <h4 class="dash-title"> Dashboard </h4>
+    <div class="row">
+      <!-- Item -->
+      <div class="col-xl-2 col-sm-6 panels">
+        <div class="item text-center panel-box">
+          <div class="title">
+            <a href="{% url 'adminpending' %} ">
+              <div class="panel-count">
+                {{not_paid_count}}            </div>
+              <span>Pending Orders</span>
+            </a>
+          </div>
+          <div class="panel-icons green">
+            <a class="current" href="{% url 'adminpending' %}" title=""><img src="https://templates.essaywpthemes.com/order/assets/images/eye.svg" alt=""></a>
+          </div>
+
+        </div>
+      </div>
+      <!-- Item -->
+      
+      <div class="col-xl-2 col-sm-6 panels">
+        <div class="item text-center panel-box">
+          <div class="title">
+            <a href="{% url 'adminprogress' %}">
+              <div class="panel-count">
+                {{progress_orders_count}}          </div>
+              <span>In Progress Orders</span>
+            </a>
+          </div>
+          <div class="panel-icons pink">
+            <a class="current" href="{% url 'adminprogress' %}" title=""><img src="https://templates.essaywpthemes.com/order/assets/images/cart.svg" alt=""></a>
+          </div>
+
+        </div>
+      </div>
+      <!-- Item -->
+      <div class="col-xl-2 col-sm-6 panels">
+        <div class="item text-center panel-box">
+          <div class="title">
+            <a href="{% url 'adminrevision' %}">
+              <div class="panel-count">
+                {{revision_orders_count}}           </div>
+              <span>Revision Orders</span>
+            </a>
+          </div>
+          <div class="panel-icons blue">
+            <a class="current" href="{% url 'adminrevision' %}" title=""><img src="https://templates.essaywpthemes.com/order/assets/images/chart.svg" alt=""></a>
+          </div>
+
+        </div>
+      </div>
+      <!-- Item -->
+      <div class="col-xl-2 col-sm-6 panels">
+        <div class="item text-center panel-box">
+          <div class="title">
+            <a href="{% url 'adminediting' %}">
+              <div class="panel-count">
+                {{editing_orders_count}}  </div>
+              <span>Editing Orders</span>
+            </a>
+          </div>
+          <div class="panel-icons yellow">
+            <a class="current" href="{% url 'admincompleted' %}" title=""><img src="https://templates.essaywpthemes.com/order/assets/images/cash.svg" alt=""></a>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+    <hr />
+
+    <br />
+
+    <section id="tabs" class="project-tab">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Approval comments
+                </a>
+
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact2" role="tab" aria-controls="nav-contact" aria-selected="false">Order Disputes
+                </a>
+
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Order Extensions
+                </a>
+
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Revision Requests
+                </a>
+
+
+
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row bg-white has-shadow tab-box">
+                  <div class="col-xl-9 col-md-6">
+
+                    <h6> Approval comments </h6>
+                  <table class="table table-striped table-advance table-hover">
+                      <tbody>
+                        <tr style="text-align: center;">
+                          <th style="text-align: left;"><i class="icon_document_alt"></i> Order ID</th>
+                          <th style="text-align: left;"><i class="icon_document_alt"></i> Title</th>
+                          <th style="text-align: left;"><i class="icon_profile"></i> Writer</th>
+                          <th style="text-align: left;"><i class="icon_profile"></i> Client</th>
+                          <th style="text-align: left;"><i class="icon_profile"></i> Editor</th>
+                          <th><i class="icon_profile"></i> Rate (out of 5)</th>
+                          <th><i class="icon_profile"></i> Rate Comment</th>
+                        </tr>
+                        {% for order in approval_ordertracking %}
+                        <tr style="text-align: center;">
+                          <td style="text-align: left;"># {{ order.order.orderNo }}</td>
+                          <td style="text-align: left;">{{ order.order.title }}</td>
+                          <td style="text-align: left;">{{ order.order.writer }}</td>
+                          <td style="text-align: left;">{{ order.order.client }}</td>
+                          <td style="text-align: left;">{{ order.order.editor }}</td>
+                          <td>{{ order.rating }}</td>
+                          <td>{{ order.remark }}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+
+
+
+
+                  </div>
+                  <div class="col-xl-3 col-md-6">
+                    <div class="row box-stats">
+
+                      <h6> Last 3 hrs Statistics </h6>
+                      <ul>
+                        <li> Online Clients: 0 </li>
+                        <li> Online Writers: 0 </li>
+
+                      </ul>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="row bg-white has-shadow tab-box">
+                  <div class="col-sm-12">
+                    <h6> Order Extensions </h6>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Client</th>
+                          <th scope="col">Deadline</th>
+                          <th scope="col">Writer Deadline</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                                              </tbody>
+                    </table>
+
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row bg-white has-shadow tab-box">
+                  <h6> Revision Requests </h6>
+                  <table class="table table-striped table-advance table-hover">
+                      <thead>
+                        <tr>
+                          <th style="text-align:center;"><i class="icon_document_alt"></i> Order ID</th>
+                          <th style="text-align:center;"><i class="icon_document_alt"></i> Title</th>
+                          <th style="text-align:center;"><i class="icon_profile"></i> Writer</th>
+                          <th style="text-align:center;"><i class="icon_profile"></i> Client</th>
+                          <th style="text-align:center;"><i class="icon_profile"></i> Editor</th>
+                          <th style="text-align:center;"><i class="icon_profile"></i> New Deadline</th>
+                          <th style="text-align:center;"><i class="icon_profile"></i> Revision Instructions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for order in revision_ordertracking  %}
+                        <tr>
+                          <td style="text-align:center;"># {{order.order.orderNo}}</td>
+                          <td style="text-align:center;">{{order.order.title}}</td>
+                          <td style="text-align:center;">{{order.order.writer}}</td>
+                          <td style="text-align:center;">{{order.order.client}}</td>
+                          <td style="text-align:center;">{{order.order.editor}}</td>
+                          <td style="text-align:center;">{{order.new_deadline}}</td>
+                          <td style="text-align:center;">{{order.remark}}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+
+
+                
+                </div>
+                
+               
+              </div>
+
+              <div class="tab-pane fade" id="nav-contact2" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row bg-white has-shadow tab-box">
+                  <div class="col-sm-12">
+                    <h6> Order Disputes </h6>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Client</th>
+                          <th scope="col">Writer</th>
+                          <th scope="col">Dispute</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                                              </tbody>
+                    </table>
+
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Graphs -->
+    <div class="row bg-white has-shadow history-box">
+      <div class="col-xl-12">
+
+
+        <div class="container">
+          <div class="row my-3">
+            <div class="col">
+              <h4 class="dash-title">Order History (by deadline)</h4>
+            </div>
+          </div>
+          <div class="row my-2">
+            <div class="col-md-12 py-1">
+              <div class="card">
+                <div class="card-body">
+                 
+
+                    <div class="row search-box">
+
+                      <div class="col-sm-2">ID</div>
+                      <div class="col-sm-3">Topic</div>
+                      <div class="col-sm-3">Due in</div>
+                      <div class="col-sm-2">Amount</div>
+                      <div class="col-sm-2">Status</div>
+                    </div>
+                    <hr />
+                    
+                    {% for order in  orders %}
+                    
+                      <div class="row search-box">
+                        <div class="col-sm-2">
+                          #{{order.orderNo}}
+                        </div>
+                        <div class="col-sm-3">
+                          <a href="{% url 'adminorderdetails' order.id %}">{{order.title}}</a>
+
+                          </a>
+                           <br /> 
+                            <small class="site">{{order.order_type}} </small>
+                             <small class="site">{{order.website}} </small>
+                           
+                    
+                              </div>
+                        
+            
+                    
+                        <div class="col-sm-3">
+                          <span class="small-deadline">Deadline in:<br></span>
+                          
+                          <div class='order-due'>
+                                <span class='due'   {% if order.time_remaining_days == 1 %} style='color: red; animation: blink 1s infinite;' {% endif %}>
+                                    Writer Deadline:
+                                    {% if order.writer_time %}
+                                   
+                                        {% if order.time_remaining_days == 0 %}
+                                            {{ order.time_remaining_hours }} H, {{ order.time_remaining_minutes }} M
+                                        {% else %}
+                                            {{ order.time_remaining_days }} D, {{ order.time_remaining_hours }} H, {{ order.time_remaining_minutes }} M
+                                        {% endif %}
+                                    {% else %}
+                                        N/A
+                                    {% endif %}
+                                </span>
+                            </div>
+                            
+                            <div class='order-due'> 
+                                <span class='due' {% if order.time_remaining_days == 1 %} style='color: red; animation: blink 1s infinite;' {% endif %}>
+                                    {% if order.writer_time %}
+                                        {% if order.time_remaining_days == 0 %}
+                                            {{ order.time_remaining_hours }} H, {{ order.time_remaining_minutes }} M
+                                        {% else %}
+                                            {{ order.time_remaining_days }} D, {{ order.time_remaining_hours }} H, {{ order.time_remaining_minutes }} M
+                                        {% endif %}
+                                    {% else %}
+                                        N/A
+                                    {% endif %}
+                                </span>
+                            </div>
+
+                           
+                        </div>
+                        <div class="col-sm-2">C:${{order.price}}</div>
+                        <div class="col-sm-2"><br><span class="paid"><i class="fa-solid fa-circle"></i> {{order.status}}  </span> </div>
+                      </div>
+
+                      {% endfor %}
+
+                 
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <script>
+          /* chart.js chart examples */
+
+          // chart colors
+          var colors = ['#007bff', '#28a745', '#333333', '#c3e6cb', '#dc3545', '#6c757d'];
+
+          /* large line chart */
+          var chLine = document.getElementById("chLine");
+          var chartData = {
+            labels: ["03","04","05","06","07","08","09","10","11","12","01","02","03",],
+            datasets: [{
+                data: ["0","0","0","0","0","0","0","0","0","0","0","01","07",],
+                backgroundColor: 'transparent',
+                borderColor: colors[0],
+                label: 'this year',
+                borderWidth: 4,
+                pointBackgroundColor: colors[0]
+              },
+
+              {
+                label: 'Last Year',
+                data: ["0","0","0","0","0","0","0","0","0","0","0","0","0",],
+                backgroundColor: 'transparent',
+                borderColor: colors[1],
+                label: 'last year',
+                borderWidth: 4,
+                pointBackgroundColor: colors[0]
+              }
+
+              //   {
+              //     data: [639, 465, 493, 478, 589, 632, 674],
+              //     backgroundColor: colors[3],
+              //     borderColor: colors[1],
+              //     borderWidth: 4,
+              //     pointBackgroundColor: colors[1]
+              //   }
+            ]
+          };
+          if (chLine) {
+            new Chart(chLine, {
+              type: 'line',
+              data: chartData,
+              options: {
+                scales: {
+                  xAxes: [{
+                    ticks: {
+                      beginAtZero: false
+                    }
+                  }]
+                },
+                legend: {
+                  display: false
+                },
+                responsive: true
+              }
+            });
+          }
+        </script>
+
+
+
+      </div>
+
+    </div>
+
+    <br />
+  </div>
+</div>

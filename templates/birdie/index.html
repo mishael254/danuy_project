@@ -1,0 +1,664 @@
+{% extends 'birdie/base.html' %} 
+{% load static %} 
+
+{% block title %}  Accounting Homework Help | AccountingBirdie {% endblock %}
+
+{% block content %}
+<!--  Hero Section -->
+<section id="hero" class="hero">
+  <div class="container position-relative">
+    <div class="row gy-5" data-aos="fade-in">
+      <div class="col-lg-6 order-1 order-lg-1 d-flex flex-column text-lg-start">
+        <h2>Need Help With Your <span>Accounting Homework?</span></h2>
+        <p>Our qualified experts are qualified to provide accounting<br/>
+          essay help to all accounting students across the globe.
+        </p>
+        <p><img src="{% static 'imgs/confidentiality.png' %}" class="conf" /> 100% confidentiality.</p>
+        <p><img src="{% static 'imgs/prices.png' %}" class="afford" /> Affordable Prices.</p>
+        <p><img src="{% static 'imgs/auth-badge.png' %}" class="auth" /> Authentic and plagiarism-free papers.</p>
+        <p><img src="{% static 'imgs/time.png' %}" class="ontime" /> Papers are delivered on time.</p>
+        <p><img src="{% static 'imgs/warranty-term.png' %}" class="sats" /> Customer Satisfaction Guaranteed.</p>
+        <!-- <div class="d-flex justify-content-center justify-content-lg-start">
+          <a href="#" class="btn-get-started">Place Order</a>
+          <a href="#" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-chat-dots"></i><span>Contact Us</span></a>
+        </div> -->
+      </div>
+      <div class="col-lg-6 order-2 order-lg-2">
+        <!-- <img src="assets/img/hero-img.svg" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100"> -->
+        <div class="form-container">
+          <form action="{% url 'orderform'%}">
+              <h2>Place an Order</h2>
+              <div class="form first">
+                  <div class="details personal">
+                      <div class="fields">
+                          <div class="input-field">
+                              <label>Type of Paper</label>
+                              <select onclick="calculatePrice()" required>
+                                  <option disabled selected>Essay (any type)</option>
+                                  <option>Essay</option>
+                                  <option>Coursework</option>
+                                  <option>Research Paper</option>
+                                  <option>Term Paper</option>
+                                  <option>Case study</option>
+                                  <option>Capstone Project</option>
+                                  <option>Assignment</option>
+                                  <option>Book report</option>
+                                  <option>Report</option>
+                                  <option>Outline</option>
+                                  <option>Book review</option>
+                                  <option>Summary</option>
+                                  <option>Power Point presentation</option>
+                                  <option>Research summary</option>
+                                  <option>Discussion board post</option>
+                                  <option>Lab report</option>
+                                  <option>Project</option>
+                              </select>
+                          </div>
+                          <div class="input-field">
+                              <label>Academic Level</label>
+                              <select  onclick="calculatePrice()" id="service" required>
+                                  <option disabled selected>Select Academic Level</option>
+                                  <option value="high">High School</option>
+                                  <option value="freshman">Freshman (College 1st year)</option>
+                                  <option value="sophomore">Sophomore (College 2nd year)</option>
+                                  <option value="junior">Junior (College 3rd year)</option>
+                                  <option value="senior">Senior (College 4th year)</option>
+                                  <option value="masters">Master's</option>
+                                  <option value="doctoral">Doctoral</option>
+                              </select>
+                          </div>
+                          <div class="input-field pages">
+                              <label>Number of Pages (1 page = 275 Words)</label>
+                              <input  onclick="calculatePrice()" type="number" id="pages" value="1" min="1" placeholder="pages" required>
+                          </div>
+                          <div class="input-field">
+                              <label>Writer Level</label>
+                              <select  onclick="calculatePrice()" id="level" required>
+                                  <option disabled selected>Select Writer Level</option>
+                                  <option value="standard">Standard Writer</option>
+                                  <option value="premium">Premium Writer</option>
+                                  <option value="platinum">Platinum Writer</option>
+                              </select>
+                          </div>
+                          <div class="input-field">
+                              <label>Deadline</label>
+                              <input  onclick="calculatePrice()" type="date" placeholder="Due Date" required>
+                          </div>
+                      </div>
+                      <div class="cart-price" style="font-size: 24px; font-weight:600; color:#1AA2B9;">
+                      Total Price: $<span id="price"></span>
+                      </div>
+                      <div class="buttons">
+                        <a href="{% url 'orderform'%}">
+                          <button class="submit">
+                              <span class="btnText">Place Order</span>
+                              <i class="uil uil-navigator"></i>
+                          </button>
+                          </a>
+                      </div>
+                  </div> 
+              </div>
+          </form>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Hero Section -->
+
+
+<main id="main">
+      <!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio sections-bg">
+  <div class="container" data-aos="fade-up">
+   
+
+    <div class="section-header">
+      <h2>How It Works</h2>
+
+    <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+  
+    <div class="row gy-4 portfolio-container">
+  
+      <div class="col-xl-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-wrap">
+          <a><img src="{% static 'imgs/Fill-Form.jpg' %}" class="img-fluid" alt=""></a>
+            <div class="portfolio-info">
+              <h4><a href="#" title="More Details">Fill In the Order Form</a></h4>
+                <p>Set a deadline, define the requirements of the project, and let us also  know what you need our assistance with.</p>
+            </div>
+        </div>
+      </div><!-- End Portfolio Item -->
+  
+      <div class="col-xl-4 col-md-6 portfolio-item filter-product">
+        <div class="portfolio-wrap">
+          <a><img src="{% static 'imgs/Choose.jpg' %}" class="img-fluid" alt=""></a>
+              <div class="portfolio-info">
+                <h4><a href="#" title="More Details">Choose Your Writer and Make a Deposit</a></h4>
+                <p>Once you've filled out the order form, it's time to pick a writer. You can chat with the writer directly and discuss your project in detail.</p>
+              </div>
+        </div>
+      </div><!-- End Portfolio Item -->
+  
+      <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
+        <div class="portfolio-wrap">
+          <a><img src="{% static 'imgs/Get.webp' %}" class="img-fluid" alt=""></a>
+          <div class="portfolio-info">
+            <h4><a href="#" title="More Details">Get it done on time</a></h4>
+            <p>You will be notified by email when your paper is ready. You can review the assignment and ask for revisions if necessary at no additional  cost.</p>
+          </div>
+        </div>
+      </div><!-- End Portfolio Item -->
+  
+    </div><!-- End Portfolio Container -->
+
+    <div class="buttons">
+      <a href="order">
+        <button class="sumbit">
+          <span class="btnText">Place Order</span>
+          <i class="uil uil-navigator"></i>
+      </button>
+      </a>
+    </div>
+  
+  </div>
+</section><!-- End Portfolio Section -->
+
+<div class="banner-container" >
+
+  <div class="banner">
+      <!-- <div class="shoe">
+          <img src="shoe.png" alt="">
+      </div> -->
+        <div class="content">
+            <!-- <span>upto</span>
+            <h3>25% 0ff</h3> -->
+            <p>Looking for Accounting homework help? 
+              Get 15% off on your first order.
+            </p>
+            <div class="input-field pages">
+              <input type="text"  placeholder="Enter Email" required>
+            </div>
+            <a href="#" class="btn">Get discount</a>
+        </div>
+        <div class="women">
+            <img src="{% static 'imgs/women.png' %}" alt="">
+        </div>
+  </div>
+
+</div>
+
+<!--Why Us Section Starts here-->
+<section>
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>Why Accounting Birdie ?</h2>
+    </div>
+    <div class="wrap">
+        <div class="box">
+          <div class="front-face">
+              <div class="icon">
+                  <img src="{% static 'imgs/24-hours.png' %}" alt="">
+              </div>
+              <span>24/7 Unlimited Support</span>
+          </div>
+          <div class="back-face">
+              <span>24/7 Unlimited Support</span>
+              <p>
+                  We're always there for you and respond in as little as one minute.
+              </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="front-face">
+              <div class="icon">
+                  <img src="{% static 'imgs/safe-shield.png' %}" alt="">
+              </div>
+              <span>Privacy & Confidentiality</span>
+          </div>
+          <div class="back-face">
+              <span>Privacy & Confidentiality</span>
+              <p>
+                  We allways keep your information private and safe. 100% confidentiality.
+              </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="front-face">
+              <div class="icon">
+                  <img src="{% static 'imgs/rating.png' %}" alt="">
+              </div>
+              <span>4.82 Rating</span>
+          </div>
+          <div class="back-face">
+              <span>4.82 Rating</span>
+              <p>
+                  A high rating of 4.8 out of 5 from our Accountingbirdie Customers.
+              </p>
+          </div>
+      </div>
+  </div>
+</section>
+
+  <!-- ======= Testimonials Section ======= -->
+  <section id="testimonials" class="testimonials">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <h2>Testimonials</h2>
+        <p>Accounting birdie values each opinion about our service 
+          and strive to make it better each day. </p>
+      </div>
+
+      <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <div class="d-flex align-items-center">
+                  <img src="{% static 'imgs/review.png' %}" class="testimonial-img flex-shrink-0" alt="">
+                  <div>
+                    <h3>Customer-6142346</h3>
+                    <h4><i class="bi bi-patch-check-fill"></i> Verified Order</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  This writer is the best ever! Before I found her, I had tried more than 4 other websites for the same project, & none of their Writer could get the job the way it was supposed to be done, except her.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <div class="d-flex align-items-center">
+                  <img src="{% static 'imgs/review.png' %}" class="testimonial-img flex-shrink-0" alt="">
+                  <div>
+                    <h3>Customer-14233</h3>
+                    <h4><i class="bi bi-patch-check-fill"></i> Verified Order</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  The writer is an excellent communicator and is most detailed in delivering excellent research. I will not hesitate to work with you again and high recommend you to anyone in need of authentic research for their projects.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <div class="d-flex align-items-center">
+                  <img src="{% static 'imgs/review.png' %}" class="testimonial-img flex-shrink-0" alt="">
+                  <div>
+                    <h3>Customer-36475</h3>
+                    <h4><i class="bi bi-patch-check-fill"></i> Verified Order</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  The writer was quick to help and was generous with his time and effort. Delivered the paper within 24 hours and at a reasonable price. I'll definitely be coming back for further help regarding accounting and taxes. Thank you!
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <div class="d-flex align-items-center">
+                  <img src="{% static 'imgs/review.png' %}" class="testimonial-img flex-shrink-0" alt="">
+                  <div>
+                    <h3>Customer-52786</h3>
+                    <h4><i class="bi bi-patch-check-fill"></i> Verified Order</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  The writer was very quick and efficient. In the first submission, there was a section missing (projections) but he quickly rectified and submitted again. Overall, good experience
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <div class="d-flex align-items-center">
+                  <img src="{% static 'imgs/review.png' %}" class="testimonial-img flex-shrink-0" alt="">
+                  <div>
+                    <h3>Customer-78612</h3>
+                    <h4><i class="bi bi-patch-check-fill"></i> Verified Order</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  Excellent work. submitted on time. I will surely recommend him to my colleagues. Keep up the good work!
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </section><!-- End Testimonials Section -->
+
+  <!-- ======== services section ========= -->
+  <section class="services">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2>Some Accounting Essay Services We Offer</h2>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div class="card-service">
+            <h3>Accounting Research Paper</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Financial Ratio Analysis6</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Case Study Writing</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Financial Management</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>MYOB Perdisco Assignment</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Financial Reporting</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Presentation Assignment Help</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Financial Modelling</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Financial Statements' Preparation & Analysis </h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Risk & Return Analysis</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Unique Submission Accounting Essay</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Capital Budgeting</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Proofreading & Editing Help</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Cash-Flow Projections</h3>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-service">
+            <h3>Coursework</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Frequently Asked Questions Section ======= -->
+  <section id="faq" class="faq">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="row gy-4">
+
+        <div class="col-lg-4">
+          <div class="content px-xl-5">
+            <!-- <h3>Frequently Asked <strong>Questions</strong></h3> -->
+            <p>
+              Want to contact us directly? No problem. We are always here for you.
+            </p>
+          </div>
+          <div class="buttons">
+            <button class="sumbit">
+                <span class="btnText"><i class="bi bi-whatsapp"></i> Ask Our Team</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+
+          <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                  <span class="num">1.</span>
+                  Do essay writing services work?
+                </button>
+              </h3>
+              <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div class="accordion-body">
+                  Essay writing services work and are worth every penny spent. 
+                  They use only professional writers who know all about ethical 
+                  writing services. They are also experienced in academic formats 
+                  and research and when used properly, they enable students to 
+                  put their points across better.
+                </div>
+              </div>
+            </div><!-- # Faq item-->
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
+                  <span class="num">2.</span>
+                  Is Accounting Birdie legit?
+                </button>
+              </h3>
+              <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div class="accordion-body">
+                  Accountingbirdie is absolutely legit. We know it’s hard to trust the company you’ve just found online so we hope our backstory can help you get to know us better. was Accountingbirdie was found as a part of Academia Inc, which is an international company focused on providing education services and developing innovative decisions for education worldwide.
+                </div>
+              </div>
+            </div><!-- # Faq item-->
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
+                  <span class="num">3.</span>
+                  How can I pay someone to write my essay?
+                </button>
+              </h3>
+              <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div class="accordion-body">
+                  There are thousands of essay writing companies online. You can use one of them such as nursingassignmentservice.com to get your essay. We offer exactly what students are looking for. Our writers are professionals who can write essays based on various academic topics.
+                </div>
+              </div>
+            </div><!-- # Faq item-->
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
+                  <span class="num">4.</span>
+                  Why should I choose Accounting Birdie when I can use other online writing companies?
+                </button>
+              </h3>
+              <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div class="accordion-body">
+                  You can rely on us because we really help people seeking academic help. You and your studies matter to us and our experts, that’s why we provide you with guarantees on each and every project. We won’t charge you until you’re satisfied with the outcome of cooperation with our expert. You can always be sure you get professional help and remain anonymous while using Accountingbirdie.
+                </div>
+              </div>
+            </div><!-- # Faq item-->
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
+                  <span class="num">5.</span>
+                  How does Accounting Birdie use and store my personal data?
+                </button>
+              </h3>
+              <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div class="accordion-body">
+                  Using accountingbirdie is absolutely safe. We care about security, therefore we encrypt all personal data to make every user feel safe while using accounting birdie and we don’t share any personal information with any third parties without your permission.
+                </div>
+              </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Frequently Asked Questions Section -->
+
+  <!-- ======= Recent Blog Posts Section ======= -->
+  <section id="recent-posts" class="recent-posts sections-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <h2>Recent Blog Posts</h2>
+        <!-- <p>Consequatur libero assumenda est voluptatem est quidem illum et officia imilique qui vel architecto accusamus fugit aut qui distinctio</p> -->
+      </div>
+
+      <div class="row gy-4">
+
+        <div class="col-xl-4 col-md-6">
+          <article>
+
+            <div class="post-img">
+              <img src="{% static 'img/blog/blog-1.jpg' %}" alt="" class="img-fluid">
+            </div>
+
+            <p class="post-category">Accounting</p>
+
+            <h2 class="title">
+              <a href="Accounting-Assignment-Help">Accounting Assignment Help</a>
+            </h2>
+
+            <div class="d-flex align-items-center">
+              <img src="{% static 'imgs/Blog-author.png' %}" alt="" class="img-fluid post-author-img flex-shrink-0">
+              <div class="post-meta">
+                <p class="post-author">Accounting Birdie</p>
+                <p class="post-date">
+                  <time datetime="2022-01-01">Jan 1, 2022</time>
+                </p>
+              </div>
+            </div>
+
+          </article>
+        </div><!-- End post list item -->
+
+        <div class="col-xl-4 col-md-6">
+          <article>
+
+            <div class="post-img">
+              <img src="{% static 'img/blog/blog-2.jpg' %}" alt="" class="img-fluid">
+            </div>
+
+            <p class="post-category">Accounting</p>
+
+            <h2 class="title">
+              <a href="Online-Accounting-Help-With-Homework">Online Accounting Help With Homework</a>
+            </h2>
+
+            <div class="d-flex align-items-center">
+              <img src="{% static 'imgs/Blog-author.png' %}" alt="" class="img-fluid post-author-img flex-shrink-0">
+              <div class="post-meta">
+                <p class="post-author">Accounting Birdie</p>
+                <p class="post-date">
+                  <time datetime="2022-01-01">Jun 5, 2022</time>
+                </p>
+              </div>
+            </div>
+
+          </article>
+        </div><!-- End post list item -->
+
+        <div class="col-xl-4 col-md-6">
+          <article>
+
+            <div class="post-img">
+              <img src="{% static 'img/blog/blog-3.jpg' %}" alt="" class="img-fluid">
+            </div>
+
+            <p class="post-category">Accounting</p>
+
+            <h2 class="title">
+              <a href="Do-my-accounting-homework-for-me">Do my accounting homework for me</a>
+            </h2>
+
+            <div class="d-flex align-items-center">
+              <img src="{% static 'imgs/Blog-author.png '%}" alt="" class="img-fluid post-author-img flex-shrink-0">
+              <div class="post-meta">
+                <p class="post-author">Accounting Birdie</p>
+                <p class="post-date">
+                  <time datetime="2022-01-01">Jun 22, 2022</time>
+                </p>
+              </div>
+            </div>
+
+          </article>
+        </div><!-- End post list item -->
+
+      </div><!-- End recent posts list -->
+
+    </div>
+  </section><!-- End Recent Blog Posts Section -->
+
+</main><!-- End #main -->
+
+{% endblock %}
+

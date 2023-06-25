@@ -1,0 +1,55 @@
+{% extends 'birdie/base.html' %}
+{% load static %} 
+{% block title %} | Order Now {% endblock %}
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Blog Details Section ======= -->
+    <section id="order-form" class="order-form">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8">
+
+           
+            <div class="order-container">
+              <header>
+
+               
+              </header>
+            
+              <h1>Add Files to Order "{{ order.title }}"</h1>
+              
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Upload</button>
+              </form>
+             
+          </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </section><!-- End Blog Details Section -->
+
+  </main><!-- End #main -->
+  
+   <!-- Vendor JS Files -->
+   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'vendor/aos/aos.js' %}"></script>
+   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+   <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+   <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+   <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+   <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+   <!-- Template Main JS File -->
+   <script src="{% static 'vendor/owl-carousel/owl.carousel.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
+   <script src="{% static 'js/money.js' %}"></script>
+
+{% endblock %}

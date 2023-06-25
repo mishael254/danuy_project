@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Dashboard</title>
+
+  <link href="https://templates.essaywpthemes.com/order/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/jquery.min.js"></script>
+  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Custom fonts for this template -->
+  <script src="https://kit.fontawesome.com/f53431686e.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="https://templates.essaywpthemes.com/order/public/admin/freelancer.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  {% include 'admindash/partials/adminnavbar.html' %}
+
+  <!-- Navigation -->   <!-- Portfolio Grid Section -->
+    <section class="" id="portfolio">
+      <div class="container">
+        <div class="row">
+
+          {% include 'admindash/partials/adminsidenavbar.html' %}
+
+          <div class="col-sm-10">
+
+  <div class="row text-center service-menu-background">
+
+    <div class="col-sm-1">
+      <a href="{% url 'adminpending' %}" class="orders-menu">
+        Pending <span class="header-badge grey"> {{not_paid_count}} </span>
+      </a>
+    </div>
+    <!--
+    <div class="col-sm-1"><a href="https://templates.essaywpthemes.com/order/adorders/urgent">
+        <i class="fa fa-fire" aria-hidden="true"></i> Urgent (<font color="#e60000">1</font>)</a>
+    </div>
+    <div class="col-sm-1"><a href="https://templates.essaywpthemes.com/order/adorders/aurgent">
+        <i class="fa fa-fire" aria-hidden="true"></i><br /> Urgent assigned(<font color="#e60000">0</font>)</a>
+    </div>
+    <div class="col-sm-1"><a href="https://templates.essaywpthemes.com/order/adorders/bids">
+        <i class="fa fa-fire" aria-hidden="true"></i> <br />Bids (<font color="#e60000">0</font>)</a>
+    </div>
+    -->
+
+    <div class="col-sm-1">
+      <a href="{% url 'adminavailable' %}" class="orders-menu">
+        Available <span class="header-badge grey"> {{paid_count}} </a>
+            
+    </div>
+    
+    <div class="col-sm-1">
+      <a href="{% url 'adminprogress' %}" class="orders-menu">
+        Progress <span class="header-badge grey"> {{progress_orders_count}}  </a>
+    </div>
+    <div class="col-sm-1">
+      <a href="{% url 'adminediting' %}" class="orders-menu">
+        Editing <span class="header-badge grey"> {{editing_orders_count}} </a>
+            
+    </div>
+   
+    <div class="col-sm-1">
+      <a href="{% url 'admincompleted' %}" class="orders-menu">
+        Completed <span class="header-badge grey">{{completed_orders_count}}     </a>
+    </div>
+    <div class="col-sm-1">
+      <a href="{% url 'adminrevision' %}" class="orders-menu">
+        Revision <span class="header-badge grey">{{revision_orders_count}}       </a>
+    </div>
+    <div class="col-sm-1">
+      <a href="{% url 'admincancelled' %}" class="orders-menu">
+        Cancelled <span class="header-badge grey"> {{cancelled_orders_count}}    </a>
+    </div>
+
+    <div class="col-sm-1">
+        <a href="{% url 'adminavailable' %}" class="orders-menu">
+          Approved <span class="header-badge grey"> {{approved_orders_count}} </a>
+              
+      </div>
+  </div>
+
+  <!--
+  <div class="row search-box">
+    
+        <div class="col-sm-4">
+
+      <form action="https://templates.essaywpthemes.com/order/adorders/getid" method="post" class="row">
+        <input name="searchid" class="col-sm-9 form-control border-default" placeholder="Search order by ID" type="text">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+
+    </div>
+    <div class="col-sm-6">
+      <form action="https://templates.essaywpthemes.com/order/adorders/search_url_create" method="post" class="row">
+        <input name="search" class="col-sm-10 form-control border-default" placeholder="Search order by title/keyword" type="text" value="">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+    <div class="col-sm-1"><a class="btn btn-info" href="https://templates.essaywpthemes.com/order/adorders/bidding">Clear search</a></div>
+
+
+  </div>
+
+  <hr />
+   -->
+  <div class="row search-box">
+
+    <div class="col-sm-2">ID</div>
+    <div class="col-sm-2">Topic</div>
+    <!-- <div class="col-sm-1">Pages</div>
+    <div class="col-sm-1">Quality</div>-->
+    <div class="col-sm-2">Due in</div>
+    <div class="col-sm-1">Status</div>
+    <div class="col-sm-1">Writer</div>
+    <div class="col-sm-1">Client</div>
+    <div class="col-sm-1">Amount</div>
+</div>
+<hr />
+
+{% for order in approved_orders %}
+
+  <div class="row search-box">
+    <div class="col-sm-2">
+      #{{order.orderNo}}
+    </div>
+    <div class="col-sm-2">
+      <a href="{% url 'adminorderdetails' order.id %}">{{order.title}}</a>
+
+
+                
+
+      </a>
+       <br /> 
+        <small class="site">{{order.order_type}} </small>
+
+          </div>
+    <!--<div class="col-sm-1">2<br /><small>Double</small><br /> <small>Ppt Slide : 1</small></div>
+    <div class="col-sm-1">Standard</div>-->
+
+    <div class="col-sm-2">
+      <span class="small-deadline">Posted on<br></span>{{order.Submissiondate}}     <hr />
+      <span class="small-deadline">Deadline in:<br></span>
+      <span class='due' {% if order.time_remaining_days == 1 %} style='color: red; animation: blink 1s infinite;' {% endif %}>
+                                    {% if order.writer_time %}
+                                        {% if order.time_remaining_days == 0 %}
+                                            {{ order.time_remaining_hours }} H, {{ order.time_remaining_minutes }} M
+                                        {% else %}
+                                            {{ order.time_remaining_days }} D, {{ order.time_remaining_hours }} H, {{ order.time_remaining_minutes }} M
+                                        {% endif %}
+                                    {% else %}
+                                        N/A
+                                    {% endif %}
+                                </span>
+    </div>
+    <div class="col-sm-1"><span class="paid"><i class="fa-solid fa-circle"></i> {{order.status}}  </span> </div>
+  
+    <div class="col-sm-1"><a href="">Writer: {{order.writer}}</a>
+      <hr /> <a href="">Editor: {{order.editor}} </a>
+    </div>
+   
+    <div class="col-sm-1"> <a href="">{{order.client}}</a></div>
+     <div class="col-sm-1">C:${{order.price}} <br /> W: ${{order.writer_amount}}<br /> E: ${{order.editor_amount}}</div>
+  </div>
+  <hr />
+
+  {% endfor %}
+
+
+<div class="row">
+  <div class="col-sm-6"></div>
+  <div class="col-sm-3">
+    <h6>Total orders: {{approved_orders_count}}</h6>
+    
+    
+  </div>
+      <div class="col-sm-3">
+      <h6>Total Amount: USD {{approved_orders_total}}</h6>
+    </div>
+  </div>
+<hr />
+
+
+<div class="pagination float-right">
+  <li></li>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+</div>
+</section>
+
+
+
+</body>
+
+</html>
