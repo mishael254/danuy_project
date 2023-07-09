@@ -1,156 +1,107 @@
-
-
+{% load static %}
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Top Writers Admin</title>
-
-  
-
-  <link href="https://templates.essaywpthemes.com/order/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/jquery.min.js"></script>
-  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/bootstrap.min.js"></script>
-  <!-- Custom fonts for this template -->
-  <script src="https://kit.fontawesome.com/f53431686e.js" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="/static/css/font.css">
-  <!-- Custom styles for this template -->
-  <link href="https://templates.essaywpthemes.com/order/public/admin/freelancer.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/static/css/animate.css">
-  <link rel="stylesheet" type="text/css" href="/static/css/awesome.css">
-  <link rel="stylesheet" type="text/css" href="/static/css/dash.css">
-  
-
+	<title>Top Writers Admin</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'icons/favicon/favicon.ico'%}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'admin/fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'admin/fonts/iconic/css/material-design-iconic-font.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/animate/animate.css'%}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/css-hamburgers/hamburgers.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/animsition/css/animsition.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/select2/css/select2.min.css'%}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/daterangepicker/daterangepicker.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css/main1.css'%}">
+<!--===============================================================================================-->
 </head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('/static/images/bg-01.jpg');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="/accounts/writerslogin" method="POST">
+					{% csrf_token %}
+					<span class="login100-form-logo">
+						<img src="/static/img/compellinglogo.png" alt="compellinglogo">
+					</span>
 
-<body id="page-top">
-    <section class="" id="portfolio">
+					<span class="login100-form-title p-b-34 p-t-27">
+						Academic Writing
+						
+					</span>
+					<span><p>Even if you don’t have sufficient statistics or ratings, we got your back! You will still be able to get plenty of orders any time.</p></span>
+					<span class="login100-form-title p-b-30 p-t-23">
+						log in
+					</span>
 
-        <div class="container">
-            <div class="row">
-                
-                
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
 
-                <div class="wrapper">
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
 
-                    <div class="sign-in-page">
-                        <div class="signin-popup">
-                            <div class="signin-pop">
-            
-            
-            
-                                <div class="loginrow">
-                                    <div class="col-lg-5 bg-lightone d-none d-md-block">
-                                        <div class="cmp-info">
-                                            <div class="cm-logo">
-                                                
-                                                <h3>Academic Writing</h3>
-                                                <p>Even if you don’t have sufficient statistics or ratings, we’ve got your back! You will still be able to get plenty of orders any time.</p>
-                                            </div><!--cm-logo end-->
-            
-                                        </div><!--cmp-info end-->
-                                    </div>
-            
-            
-                                    <div class="col-lg-7">
-                                        <div class="login-sec">
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <p class="side-order-btn"><a class="text-white text-center" href="">Top Writers Admin </a></p>
-                                                </div>
-                                                
-                                                 
-                                                <div class="col-sm-9">
-                                                    
-                                                    <div class="intro-text">
-                                                        <h4>Sign In</h4>
-                                                        <p>Access Academic Writing panel using your username and password.</p>
-                                                    </div>
-                                                    <div class="sign_in_sec current" id="tab-1">
-                                                        <form action="/accounts/writerslogin" method="POST">
-                                                            <input type="hidden" name="csrfmiddlewaretoken" value="m2RokuuybbCLdsXMpjYgopG0sYvHKYKLBTaUhr46B2ECe6Zds37XgTy7HW2NA6sz">
-                                                            <div class="row">
-                                                                <div class="col-lg-12 no-pdd">
-                                                                    <label class="form-label" for="username">Username</label>
-                                                                    <div class="sn-field">
-                                                                        <input type="text" class="text-dark" name="username" placeholder="Username">
-                                                                        <i class="la la-user"></i>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-12 no-pdd">
-                                                                    <label class="form-label" for="password">Password</label>
-                                                                    <div class="sn-field">
-                                                                        <input type="password" class="text-dark" name="password" placeholder="Password">
-                                                                        <i class="la la-lock"></i>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-12 no-pdd">
-                                                                    <div class="checky-sec">
-                                                                        <a href="/accounts/writersregister" title="">Register as a Writer?</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-12 no-pdd">
-                                                                    <button type="submit" value="submit">Sign in</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div><!--sign_in_sec end-->
-                                                </div>
-                                            </div>
-                                        </div><!--login-sec end-->
-                                    </div>
-                                    
-                                    
-                                </div>
-            
-            
-                            </div><!--signin-pop end-->
-                        </div><!--signin-popup end-->
-            
-                    </div><!--sign-in-page end-->
-            
-            
-                </div><!--theme-layout end-->
-        
-            </div>
-            
-            <div class="col-sm-10 dash-home">
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div>
 
-                
-               
-                <script src="https://templates.essaywpthemes.com/order/public/assets/js/Chart.min.js"></script>
-                <script src="https://templates.essaywpthemes.com/order/public/assets/js/utils.js"></script>
-      
-              </div>
-    
-          </div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit" value="submit">
+							Login
+						</button>
+					</div>
 
-    </section>
+					<div class="text-center p-t-90">
+						<a class="txt1" href="#">
+							Forgot Password?
+						</a>
+						<p class="side-order-btn"><a class="text-white text-center" href="/accounts/writersregister"><strong>Register as a writer </strong></a></p>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/animsition/js/animsition.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{%static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/select2/js/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/daterangepicker/moment.min.js'%}"></script>
+	<script src="{%static 'vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/countdowntime/countdowntime.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'js/main1.js'%}"></script>
 
 </body>
-
- 
-
- 
-   
-
-
-     
-        
-
-          
-
-          
+</html>

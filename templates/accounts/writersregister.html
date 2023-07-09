@@ -1,193 +1,79 @@
+{% load static %}
 
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Top Writers Admin</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
+		<!-- LINEARICONS -->
+		<link rel="stylesheet" href="{%static 'admin/fonts/linearicons/style.css'%}">
+		
+		<!-- STYLE CSS -->
+		
+		<link rel="stylesheet" href="{% static 'css/styler.css'%}">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+		<!--JQUERY FORM VALIDATOR-->
 
-  <title>Top Writers Admin</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.79/jquery.form-validator.min.js"></script>
 
-  <link href="https://templates.essaywpthemes.com/order/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+	</head>
 
-  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/jquery.min.js"></script>
-  <script src="https://templates.essaywpthemes.com/order/public/bootstrap/js/bootstrap.min.js"></script>
-  <!-- Custom fonts for this template -->
-  <script src="https://kit.fontawesome.com/f53431686e.js" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/116a312519.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/font.css' %}">
-  <!-- Custom styles for this template -->
-  <link href="https://templates.essaywpthemes.com/order/public/admin/freelancer.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/awesome.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/dash.css' %}">
-  
-  
-  
+	<body>
+        <div class="background"></div>
 
-</head>
-
-<body id="page-top">
-    <section class="" id="portfolio">
-
-        <div class="container">
-            <div class="row">
-                
-                
-
-                <div class="wrapper">
-
-                    <div class="sign-in-page">
-                        <div class="signin-popup">
-                            <div class="signin-pop">
-            
-            
-            
-                                <div class="loginrow">
-                                    <div class="col-lg-5 bg-lightone d-none d-md-block">
-                                        <div class="cmp-info">
-                                            <div class="cm-logo">
-                                                
-                                                <h3>Academic Writing</h3>
-                                                <p>Even if you don’t have sufficient statistics or ratings, we’ve got your back! You will still be able to get plenty of orders any time.</p>
-                                            </div><!--cm-logo end-->
-            
-                                        </div><!--cmp-info end-->
-                                    </div>
-            
-            
-                                    <div class="col-lg-7">
-                                        <div class="login-sec">
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <p class="side-order-btn"><a class="text-white text-center" href="">Top Writers Admin</a></p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    
-                                                    <div class="intro-text">
-                                                        <h4>Register as a Writer </h4> 
-                                                       
-                                                    </div>
-                                                    <div class="sign_in_sec current" id="tab-1">
-                                                        <form action="{% url 'writersregister' %}" method="POST">
-                                                            {% csrf_token %}
-                                                            <div class="row">
-                                                                <div class="col-lg-6">
-                                                                    <div class="form-group">
-                                                                        <label class="form-label" for="username">Username</label>
-                                                                        <div class="sn-field">
-                                                                            <input type="text" class="text-dark form-control" name="username" placeholder="Username">
-                                                                            <i class="la la-user"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="form-label" for="first_name">First Name</label>
-                                                                        <div class="sn-field">
-                                                                            <input type="text" class="text-dark form-control" name="first_name" placeholder="First Name">
-                                                                            <i class="la la-user"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="form-label" for="last_name">Last Name</label>
-                                                                        <div class="sn-field">
-                                                                            <input type="text" class="text-dark form-control" name="last_name" placeholder="Last Name">
-                                                                            <i class="la la-user"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="form-group">
-                                                                        <label class="form-label" for="email">Email</label>
-                                                                        <div class="sn-field">
-                                                                            <input type="text" class="text-dark form-control" name="email" placeholder="Email">
-                                                                            <i class="la la-envelope"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                  
-                                                                    <div class="form-group">
-                                                                        <label class="form-label" for="password">Password</label>
-                                                                        <div class="sn-field">
-                                                                            <input type="password" class="text-dark form-control" name="password" placeholder="Password">
-                                                                            <i class="la la-lock"></i>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="form-group">
-                                                                        <label class="form-label" for="password1">Confirm Password</label>
-                                                                        <div class="sn-field">
-                                                                            <input type="password" class="text-dark form-control" name="password2" placeholder=" Password">
-                                                                            <i class="la la-lock"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-12 no-pdd">
-                                                                    <div class="checky-sec">
-                                                                        <a href="{% url 'writerslogin' %}" title="">Log In Instead?</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-12 no-pdd">
-                                                                    <button type="submit" value="submit" class="btn btn-primary">Register</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    
-                                                    
-                                                    
-                                                    <!--sign_in_sec end-->
-                                                </div>
-                                            </div>
-                                        </div><!--login-sec end-->
-                                    </div>
-                                    
-                                    
-                                </div>
-            
-            
-                            </div><!--signin-pop end-->
-                        </div><!--signin-popup end-->
-            
-                    </div><!--sign-in-page end-->
-            
-            
-                </div><!--theme-layout end-->
-        
-            </div>
-            
-            <div class="col-sm-10 dash-home">
-
-                
-               
-                <script src="https://templates.essaywpthemes.com/order/public/assets/js/Chart.min.js"></script>
-                <script src="https://templates.essaywpthemes.com/order/public/assets/js/utils.js"></script>
-      
-              </div>
-    
-          </div>
-
-    </section>
-
-</body>
-
- 
-
- 
-   
-
-
-     
-        
-
-          
-
-          
+		<div class="wrapper">
+			<div class="inner">
+				<img src="/static/images/image-1.png" alt="" class="image-1">
+				<form action="{% url 'writersregister' %}" method="POST">
+					{% csrf_token %}
+					<span><img src="/static/img/compellinglogo.png" alt="compellinglogo"></span>
+					<h3>New Account?</h3>
+					<div class="form-holder">
+						<span class="lnr lnr-user"></span>
+						<input type="text" class="form-control" name="username" placeholder="Username" pattern="[a-zA-Z0-9]+" data-validation="length alphanumeric" data-validation-length="3-12" required >
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-mustache"></span>
+						<input type="text" class="form-control" name="first_name" placeholder="First name"pattern="[a-zA-Z0-9]+" data-validation="length alphanumeric" data-validation-length="3-12"  required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-mustache"></span>
+						<input type="text" class="form-control" name="last_name" placeholder="Last name" pattern="[a-zA-Z0-9]+" data-validation="length alphanumeric" data-validation-length="3-12" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-phone-handset"></span>
+						<input type="tel" id = "phone" pattern="[012][0-9]{9}" class="form-control" placeholder="Phone Number" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-envelope"></span>
+						<input type="text" class="form-control" name="email" placeholder="Mail" data-validation="email" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" id="password" class="form-control" name="password" placeholder="Password"  pattern=".{8,}" title="Password must be at least 8 characters" data-validation="length" data-validation-length="min8" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" id="confirm-password" class="form-control" name="password2" placeholder="Confirm Password" data-validation="confirmation" data-validation-confirm="password" required>
+					</div>
+					<button type="submit" value="submit">
+						<span>Register</span>
+					</button>
+					<div class="checky-sec">
+						<a href="{% url 'writerslogin' %}" title="">Log In Instead?</a>
+					</div>
+				</form>
+				<img src="/static/images/image-2.png" alt="" class="image-2">
+			</div>
+			
+		</div>
+		
+		<script src="{%static 'vendor/jquery/jquery-3.3.1.min.js'%}"></script>
+		<script src="{%static 'js/main2.js'%}"></script>
+		
+		
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
